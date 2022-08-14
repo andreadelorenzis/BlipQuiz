@@ -1,0 +1,136 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: #333;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.container {
+    position: fixed;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    animation-name: slide;
+    animation-duration: 0.3s;
+}
+
+.header {
+    position: relative;
+    background-color: #D8E7FF;
+    padding: 20px;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    padding: 20px;
+}
+
+.body {
+    padding: 0 30px 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.googleBtn {
+    background-color: #fff;
+    color: #333;
+    font-weight: 600;
+    border-radius: 25px;
+    border: 1px solid #333;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.googleBtn img {
+    margin-right: 10px;
+}
+
+.divider {
+    margin: 20px 0 20px 0;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form input {
+    width: 100%;
+    height: 60px;
+    background-color: #F6F8FB;
+    border: 1px solid #8B8C8E;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    padding: 0 0 0 20px;
+}
+
+.mainBtn {
+    background-color: #3A86FF;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 36px;
+    width: 230px;
+    height: 50px;
+    margin: 10px 0 30px 0;
+    cursor: pointer;
+}
+
+.mainBtn:hover {
+    background-color: #4E92FF;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 30px 0 30px;
+}
+
+.footer u {
+    color: #3A86FF;
+    font-size: 14px;
+}
+
+.footer u:nth-child(1) {
+    color: #3A86FF;
+}
+
+@keyframes slide {
+    0% {
+        opacity: 0.5;
+        top: -60px;
+    }
+
+    100% {
+        opacity: 1;
+        top: 0;
+    }
+}
