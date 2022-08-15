@@ -1,0 +1,27 @@
+{
+    "decks": [
+        {
+            "name": "Sistemi operativi",
+            "nCards": 20,
+            "nCardsStudied": 3,
+            "cards": [
+                {
+                    "question": "Cos'è un sistema operativo?",
+                    "answer": "E' un programma che funge da intermediario..."
+                }
+            ]
+        },
+        {
+            "name": "Analisi matematica",
+            "nCards": 10,
+            "nCardsStudied": 10,
+            "cards": []
+        },
+        {
+            "name": "Fisica generale",
+            "nCards": 0,
+            "nCardsStudied": 0,
+            "cards": []
+        }
+    ]
+}

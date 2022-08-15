@@ -23,6 +23,7 @@
     flex-direction: column;
     animation-name: slide;
     animation-duration: 0.3s;
+    z-index: 100;
 }
 
 .header {
@@ -43,6 +44,7 @@
     top: 0;
     right: 0;
     padding: 20px;
+    cursor: pointer;
 }
 
 .body {

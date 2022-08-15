@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.toggleSwitch {
+    background: linear-gradient(#ccc, #eee);
+    height: 27px;
+    width: 55px;
+    border-radius: 1em;
+    margin: 0 8px 0 8px;
+}
+
+.knob {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    background: #3A86FF;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    left: 1px;
+    transition: left 0.3s ease-out;
+}
+
+.on {
+    left: 27px;
+}
+
+.container span {
+    font-size: 14px;
+}
+
+.active {
+    color: #3A86FF;
+}

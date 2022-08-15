@@ -150,6 +150,14 @@ html {
   font-family: 'Poppins', sans-serif;
 }
 
+body {
+  background-color: #F6F7FB;
+}
+
+input {
+  font-size: 16px;
+}
+
 .mainBtn {
   background-color: #3A86FF;
   color: #fff;

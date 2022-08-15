@@ -1,0 +1,43 @@
+.container {
+    height: 100vh;
+    padding: 0 20px 0 20px;
+}
+
+.buttonsBar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.searchBar {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    width: 180px;
+    height: 40px;
+    border-radius: 6px;
+}
+
+.searchBar input {
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+}
+
+.searchImg {
+    width: 18px;
+    height: 18px;
+    margin: 10px;
+}
+
+.addBtn {
+    background-color: #3A86FF;
+    border-radius: 5px;
+    padding: 5px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

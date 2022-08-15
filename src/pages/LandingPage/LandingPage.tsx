@@ -22,7 +22,6 @@ export default function LandingPage() {
 
     const [topOffset, setTopOffset] = useState(60);
     const [bottomOffset, setBottomOffset] = useState(0);
-    const [isOpen, setIsOpen] = useState(false);
     const bottomRef = useRef<any>(null);
 
     function handleScroll() {

@@ -23,6 +23,7 @@
     flex-direction: column;
     animation-name: slide;
     animation-duration: 0.3s;
+    z-index: 100;
 }
 
 .header {
