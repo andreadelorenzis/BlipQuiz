@@ -3,8 +3,8 @@ import styles from './Dashboard.module.css'
 import search from "../../assets/search.png";
 import plus from "../../assets/plus.png";
 import data from "../../data/MockData.json";
-import Deck from './Deck';
-import CardEditor from '../../components/EditCard/EditCard';
+import Deck from './Deck/Deck';
+import DeckEditor from './DeckEditor/DeckEditor';
 
 function Dashboard() {
 
@@ -42,7 +42,7 @@ function Dashboard() {
                     )
                 })}
             </div>
-            <CardEditor open={editorOpen} onClose={toggleEditor} isNew={true} />
+            <DeckEditor open={editorOpen} onClose={toggleEditor} isNew={true} />
         </div>
     )
 }

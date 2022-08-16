@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from "./Deck.module.css"
-import dots from "../../assets/dots.png"
-import tickBlue from "../../assets/tick_blue.png"
-import tickWhite from "../../assets/tick_white.png"
+import dots from "../../../assets/dots.png"
+import tickBlue from "../../../assets/tick_blue.png"
+import tickWhite from "../../../assets/tick_white.png"
 
 type DeckProps = {
     name: string;
