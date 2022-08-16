@@ -4,7 +4,7 @@ import search from "../../assets/search.png";
 import plus from "../../assets/plus.png";
 import data from "../../data/MockData.json";
 import Deck from './Deck';
-import CardEditor from '../../components/CardEditor/CardEditor';
+import CardEditor from '../../components/EditCard/EditCard';
 
 function Dashboard() {
 

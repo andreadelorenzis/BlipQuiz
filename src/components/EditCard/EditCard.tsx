@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import styles from "./CardEditor.module.css"
+import styles from "./EditCard.module.css"
 import close from "../../assets/close.png"
 import ToggleSwitch from './ToggleSwitch/ToggleSwitch';
+import Flashcard from './CardEditor/CardEditor';
 
 type CardEditorProps = {
     open: boolean;
@@ -25,6 +26,7 @@ function CardEditor({ open, onClose, isNew }: CardEditorProps) {
                 <img src={close} alt="close" onClick={() => onClose()} className={styles.close} />
                 <h3>{isNew ? "Add card" : "Edit card"}</h3>
                 <ToggleSwitch onClick={flipCard} />
+                <Flashcard isFlipped={false} />
             </div>
         </div>
     )

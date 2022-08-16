@@ -25,6 +25,7 @@
     animation-name: slide;
     animation-duration: 0.3s;
     z-index: 100;
+    padding: 20px;
 }
 
 .close {
