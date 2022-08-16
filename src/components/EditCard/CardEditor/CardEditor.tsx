@@ -5,6 +5,7 @@ import bold from "../../../assets/bold.png";
 import imgIcon from "../../../assets/img_icon.png";
 import eye from "../../../assets/eye.png";
 import eyeClosed from "../../../assets/eye_closed.png";
+import ReactMarkdown from "react-markdown";
 
 type FlashcardProps = {
     isFlipped: boolean
@@ -17,7 +18,6 @@ function Flashcard({ isFlipped }: FlashcardProps) {
     const [isPreview, setIsPreview] = useState(false);
 
     const handleInputChange = (event: any) => {
-        console.log(event.target.innerHTML);
         setText(event.target.value);
     }
 
@@ -33,6 +33,8 @@ function Flashcard({ isFlipped }: FlashcardProps) {
         }
     }
 
+    const mark = "# h1" + "\n" + "## h2" + "\n" + "_italic_" + "*bold*";
+
     return (
         <div className={styles.card}>
             <div className={styles.header}>
@@ -42,17 +44,16 @@ function Flashcard({ isFlipped }: FlashcardProps) {
                     <img src={isPreview ? eyeClosed : eye} />
                 </span>
             </div>
-            {/*}
-            <textarea
-                name="" id=""
-                placeholder='Type in here...'
-                onChange={handleInputChange}
-                value={text} />{*/}
-            <div className={styles.content}
-                contentEditable={true}
-                onInput={(e) => handleInputChange(e)}
-                placeholder="Type in here..."
-                defaultValue={text}>
+            <div className={styles.body}>
+                {!isPreview
+                    ? <textarea
+                        name="" id=""
+                        placeholder='Type in here...'
+                        onChange={handleInputChange}
+                        value={text} />
+                    : <ReactMarkdown>
+                        {text}
+                    </ReactMarkdown>}
             </div>
             <div className={styles.toolbar}>
                 <img src={bold} />

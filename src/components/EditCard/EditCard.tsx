@@ -24,7 +24,7 @@ function CardEditor({ open, onClose, isNew }: CardEditorProps) {
             <div className={styles.overlay}></div>
             <div className={styles.container}>
                 <img src={close} alt="close" onClick={() => onClose()} className={styles.close} />
-                <h3>{isNew ? "Add card" : "Edit card"}</h3>
+                <h3 className={styles.title}>{isNew ? "Add card" : "Edit card"}</h3>
                 <ToggleSwitch onClick={flipCard} />
                 <Flashcard isFlipped={false} />
             </div>
