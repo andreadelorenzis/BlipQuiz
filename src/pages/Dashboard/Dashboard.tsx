@@ -32,9 +32,16 @@ function Dashboard() {
                 </button>
             </div>
             <div className={styles.decksContainer}>
-                {data.decks.map((deck) => {
+                {data.decks.length == 0
+                    ? <div className={styles.noDecks}>
+                        <p className={styles.noDecks}>No decks yet</p>
+                        <button className={styles.mainBtn}>Add a deck</button>
+                    </div>
+                    : null}
+                {data.decks.map((deck: any) => {
                     return (
                         <Deck
+                            id={deck.id}
                             name={deck.name}
                             nCards={deck.nCards}
                             nCardsStudied={deck.nCardsStudied}

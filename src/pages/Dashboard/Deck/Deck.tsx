@@ -3,17 +3,25 @@ import styles from "./Deck.module.css"
 import dots from "../../../assets/dots.png"
 import tickBlue from "../../../assets/tick_blue.png"
 import tickWhite from "../../../assets/tick_white.png"
+import { useNavigate } from 'react-router-dom'
 
 type DeckProps = {
+    id: number;
     name: string;
     nCards: number;
     nCardsStudied: number;
 };
 
-function Deck({ name, nCards, nCardsStudied }: DeckProps) {
+function Deck({ id, name, nCards, nCardsStudied }: DeckProps) {
+
+    const navigate = useNavigate();
 
     const calculateProgress = () => {
         return (nCardsStudied / nCards) * 100;
+    }
+
+    const openDeck = () => {
+        navigate("/deck" + id);
     }
 
     let content;
@@ -44,7 +52,7 @@ function Deck({ name, nCards, nCardsStudied }: DeckProps) {
 
 
     return (
-        <div className={styles.deck}>
+        <div onClick={openDeck} className={styles.deck}>
             <div className={styles.top}>
                 <h3>{name}</h3>
                 <span>{nCards} card{nCards > 0 ? "s" : ""}</span>

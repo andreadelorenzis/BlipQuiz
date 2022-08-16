@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "./CardEditor.module.css"
 import italic from "../../../assets/italic.png";
 import bold from "../../../assets/bold.png";
@@ -8,32 +8,37 @@ import eyeClosed from "../../../assets/eye_closed.png";
 import ReactMarkdown from "react-markdown";
 
 type FlashcardProps = {
-    isFlipped: boolean
+    isFlipped: boolean,
+    content: {
+        question: string;
+        answer: string;
+    }
 }
 
-function Flashcard({ isFlipped }: FlashcardProps) {
-
-    const [text, setText] = useState('');
-    const [textCopy, setTextCopy] = useState('');
+function Flashcard({ isFlipped, content }: FlashcardProps) {
+    const [question, setQuestion] = useState(content.question);
+    const [answer, setAnswer] = useState(content.answer);
+    const [answerPreview, setAnswerPreview] = useState('');
+    const [questionPreview, setQuestionPreview] = useState('');
     const [isPreview, setIsPreview] = useState(false);
 
     const handleInputChange = (event: any) => {
-        setText(event.target.value);
+        if (isFlipped) {
+            setAnswer(event.target.value);
+        } else {
+            setQuestion(event.target.value);
+        }
     }
 
     const preview = () => {
         if (isPreview) {
             setIsPreview(false);
-            setText(textCopy);
         } else {
             setIsPreview(true);
-            setTextCopy(text);
-            const altText = text.toUpperCase();
-            setText(altText);
         }
     }
 
-    function cardContent(type: String): JSX.Element {
+    function cardContent(type: string, content: string): JSX.Element {
         return (
             <div className={styles.cardContent}>
                 <div className={styles.header}>
@@ -49,9 +54,9 @@ function Flashcard({ isFlipped }: FlashcardProps) {
                             name="" id=""
                             placeholder='Type in here...'
                             onChange={handleInputChange}
-                            value={text} />
+                            value={content} />
                         : <ReactMarkdown>
-                            {text}
+                            {content}
                         </ReactMarkdown>}
                 </div>
                 <div className={styles.toolbar}>
@@ -73,10 +78,10 @@ function Flashcard({ isFlipped }: FlashcardProps) {
         <div className={`${isFlipped ? styles.flipped : ''} ${styles.card}`}>
             <div className={styles.cardInner}>
                 <div className={styles.cardFront}>
-                    {cardContent("Question")}
+                    {cardContent("Question", question)}
                 </div>
                 <div className={styles.cardBack}>
-                    {cardContent("Answer")}
+                    {cardContent("Answer", answer)}
                 </div>
             </div>
         </div >

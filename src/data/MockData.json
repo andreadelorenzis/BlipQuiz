@@ -1,23 +1,37 @@
 {
     "decks": [
         {
+            "id": 1,
             "name": "Sistemi operativi",
             "nCards": 20,
             "nCardsStudied": 3,
             "cards": [
                 {
+                    "id": 1,
+                    "question": "Cos'è un sistema operativo?",
+                    "answer": "E' un programma che funge da intermediario..."
+                },
+                {
+                    "id": 2,
+                    "question": "Cos'è un sistema operativo?",
+                    "answer": "E' un programma che funge da intermediario..."
+                },
+                {
+                    "id": 3,
                     "question": "Cos'è un sistema operativo?",
                     "answer": "E' un programma che funge da intermediario..."
                 }
             ]
         },
         {
+            "id": 2,
             "name": "Analisi matematica",
             "nCards": 10,
             "nCardsStudied": 10,
             "cards": []
         },
         {
+            "id": 3,
             "name": "Fisica generale",
             "nCards": 0,
             "nCardsStudied": 0,
