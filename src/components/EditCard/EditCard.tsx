@@ -11,12 +11,12 @@ type CardEditorProps = {
 };
 
 function CardEditor({ open, onClose, isNew }: CardEditorProps) {
-    const [isBack, setIsBack] = useState(false);
+    const [isFlipped, setIsFlipped] = useState(false);
 
     if (!open) return null;
 
     const flipCard = () => {
-        setIsBack(!isBack);
+        setIsFlipped(!isFlipped);
     }
 
     return (
@@ -26,7 +26,7 @@ function CardEditor({ open, onClose, isNew }: CardEditorProps) {
                 <img src={close} alt="close" onClick={() => onClose()} className={styles.close} />
                 <h3 className={styles.title}>{isNew ? "Add card" : "Edit card"}</h3>
                 <ToggleSwitch onClick={flipCard} />
-                <Flashcard isFlipped={false} />
+                <Flashcard isFlipped={isFlipped} />
             </div>
         </div>
     )

@@ -1,13 +1,47 @@
 .card {
-    background: #FFFFFF;
-    box-shadow: 0px 4px 20px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 15px;
+    background: transparent;
     width: 100%;
     height: 347px;
     display: flex;
     flex-direction: column;
     margin-top: 25px;
+    perspective: 1000px;
+}
+
+.cardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0px 4px 20px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.flipped .cardInner {
+    transform: rotateY(180deg);
+}
+
+.cardFront,
+.cardBack {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-color: #fff;
+}
+
+.cardBack {
+    transform: rotateY(180deg);
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
 }
 
 .header {
@@ -57,8 +91,8 @@
     display: flex;
     align-items: center;
     padding: 15px 0 0 0;
-    margin-top: auto;
     border-top: 1.5px solid #EEEEEE;
+    margin-top: auto;
 }
 
 .toolbar img {
