@@ -50,7 +50,6 @@ function Deck({ id, name, nCards, nCardsStudied }: DeckProps) {
         content = <button className={styles.addBtn}>Add cards</button>
     }
 
-
     return (
         <div onClick={openDeck} className={styles.deck}>
             <div className={styles.top}>

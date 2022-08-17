@@ -1,0 +1,28 @@
+.progress {
+    display: flex;
+    align-items: center;
+}
+
+.bar {
+    background-color: blue;
+    width: 100%;
+    height: 15px;
+    background: #EDEDED;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.bar div {
+    height: 15px;
+    background-color: red;
+    background: #3A86FF;
+    border-radius: 5px 1px 1px 5px;
+}
+
+.progress span {
+    color: #3A86FF;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 10px;
+    margin-top: 6px;
+}

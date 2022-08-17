@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import Dashboard from './pages/Dashboard/Dashboard';
 import DeckDetails from './pages/DeckDetails/DeckDetails';
+import SpacedRepetition from './pages/SpacedRepetition/SpacedRepetition';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/deck:deckID" element={<DeckDetails />} />
         </Route>
+        <Route path="/deck:deckID/spaced_repetition" element={<SpacedRepetition />} />
       </Routes>
     </div>
   );

@@ -1,0 +1,108 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: #333;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.container {
+    position: fixed;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    animation-name: slide;
+    animation-duration: 0.3s;
+    z-index: 100;
+    padding: 20px;
+}
+
+.container h2 {
+    font-weight: 600;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.close {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.choice {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.choice .button {
+    min-width: 140px;
+    min-height: 140px;
+    background-color: #3A86FF;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.choice .button img {
+    width: 50px;
+    height: 50px;
+}
+
+.choice .button p {
+    color: #fff;
+    font-weight: 600;
+    font-size: 17px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.choice .text p {
+    font-size: 15px;
+}
+
+.choice .text .cardsToStudy {
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.choice .text .cardsToStudy span {
+    color: #3A86FF;
+}
+
+@keyframes slide {
+    0% {
+        opacity: 0.5;
+        top: -60px;
+    }
+
+    100% {
+        opacity: 1;
+        top: 0;
+    }
+}
