@@ -5,6 +5,7 @@ import styles from "./SpacedRepetition.module.css";
 import arrow from "../../assets/arrow.png";
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import Flashcard from '../../components/Flashcard/Flashcard';
+import { FlashcardType } from '../../components/Flashcard/FlashcardType';
 
 function SpacedRepetition() {
     const { deckID } = useParams();
@@ -24,7 +25,7 @@ function SpacedRepetition() {
                     <ProgressBar nCards={nCards} currentCard={1} />
                 </div>
                 <div className={styles.card}>
-                    <Flashcard card={card} />
+                    <Flashcard card={card} type={FlashcardType.quiz} />
                 </div>
             </div>
         </div>

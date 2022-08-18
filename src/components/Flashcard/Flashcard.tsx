@@ -4,12 +4,14 @@ import edit from '../../assets/edit.png';
 import trash from '../../assets/trash.png';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import EditCard from "../EditCard/EditCard";
+import { FlashcardType } from "./FlashcardType";
 
 type FlashcardProps = {
-    card: any
+    card: any,
+    type: string,
 }
 
-function Flashcard({ card: { question, answer } }: FlashcardProps) {
+function Flashcard({ card: { question, answer }, type }: FlashcardProps) {
 
     const [isFlipped, setIsFlipped] = useState(false);
     const [editOpen, setEditOpen] = useState(false);
@@ -41,9 +43,6 @@ function Flashcard({ card: { question, answer } }: FlashcardProps) {
                         {content}
                     </ReactMarkdown>
                 </div>
-                <div className={styles.toolbar}>
-                    <button onClick={flip} className={styles.mainBtn}>Flip</button>
-                </div>
             </div>
         );
     }
@@ -54,9 +53,40 @@ function Flashcard({ card: { question, answer } }: FlashcardProps) {
                 <div className={styles.cardInner}>
                     <div className={styles.cardFront}>
                         {cardContent("Question", question)}
+                        <div className={styles.toolbar}>
+                            <button onClick={flip} className={styles.mainBtn}>
+                                {type == FlashcardType.view ? 'Flip' : 'Show answer'}
+                            </button>
+                        </div>
                     </div>
                     <div className={styles.cardBack}>
                         {cardContent("Answer", answer)}
+                        <div className={styles.toolbar}>
+                            {type == FlashcardType.view
+                                ? <button onClick={flip} className={styles.mainBtn}>Flip</button>
+                                : <div className={styles.resultBtns}>
+                                    <div className={styles.btnContainer}>
+                                        <button onClick={flip} className={styles.btn1}>1</button>
+                                        <span>Again</span>
+                                    </div>
+                                    <div className={styles.btnContainer}>
+                                        <button onClick={flip} className={styles.btn2}>2</button>
+                                        <span>Hard</span>
+                                    </div>
+                                    <div className={styles.btnContainer}>
+                                        <button onClick={flip} className={styles.btn3}>3</button>
+                                        <span>Medium</span>
+                                    </div>
+                                    <div className={styles.btnContainer}>
+                                        <button onClick={flip} className={styles.btn4}>4</button>
+                                        <span>Easy</span>
+                                    </div>
+                                    <div className={styles.btnContainer}>
+                                        <button onClick={flip} className={styles.btn5}>5</button>
+                                        <span>Perfect</span>
+                                    </div>
+                                </div>}
+                        </div>
                     </div>
                 </div>
             </div >
