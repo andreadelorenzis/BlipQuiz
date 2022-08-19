@@ -6,7 +6,7 @@ import search from "../../assets/search.png";
 import plus from "../../assets/plus_blue.png";
 import styles from "./DeckDetails.module.css";
 import Flashcard from '../../components/Flashcard/Flashcard';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import ModalityChoice from '../ModalityChoice/ModalityChoice';
 
 function DeckDetails() {
@@ -20,10 +20,10 @@ function DeckDetails() {
 
     return (
         <div className={styles.container}>
-            <div className={styles.navBtn}>
+            <Link to={"/dashboard"} className={styles.navBtn}>
                 <img src={arrow} alt="arrow" />
                 <span>Dashboard</span>
-            </div>
+            </Link>
             <h3>Sistemi operativi</h3>
             <button onClick={toggleChoiceModal} className={styles.mainBtn}>Study</button>
             <div className={styles.searchBar}>

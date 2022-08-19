@@ -14,9 +14,9 @@
 
 .bar div {
     height: 15px;
-    background-color: red;
     background: #3A86FF;
     border-radius: 5px 1px 1px 5px;
+    transition: width 0.2s ease-in;
 }
 
 .progress span {

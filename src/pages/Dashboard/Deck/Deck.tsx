@@ -30,7 +30,7 @@ function Deck({ id, name, nCards, nCardsStudied }: DeckProps) {
             <div className={styles.data}>
                 {nCardsStudied == nCards
                     ? <span>You studied all the cards of this deck!</span>
-                    : <span>{nCardsStudied} of {nCards} card{nCards > 0 ? "s" : ""}</span>}
+                    : <span>{nCardsStudied} of {nCards} card{nCards > 0 ? "s" : ""} studied</span>}
                 <div className={styles.progress}>
                     <div className={styles.bar}>
                         <div style={{

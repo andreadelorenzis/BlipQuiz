@@ -43,7 +43,7 @@ function Dashboard() {
                         <Deck
                             id={deck.id}
                             name={deck.name}
-                            nCards={deck.nCards}
+                            nCards={deck.cards.length}
                             nCardsStudied={deck.nCardsStudied}
                         />
                     )

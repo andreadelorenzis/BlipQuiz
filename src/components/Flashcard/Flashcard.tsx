@@ -9,9 +9,10 @@ import { FlashcardType } from "./FlashcardType";
 type FlashcardProps = {
     card: any,
     type: string,
+    onSubmit: any
 }
 
-function Flashcard({ card: { question, answer }, type }: FlashcardProps) {
+function Flashcard({ card: { question, answer }, type, onSubmit }: FlashcardProps) {
 
     const [isFlipped, setIsFlipped] = useState(false);
     const [editOpen, setEditOpen] = useState(false);
@@ -28,6 +29,11 @@ function Flashcard({ card: { question, answer }, type }: FlashcardProps) {
             setEditOpen(true);
             document.body.style.overflow = "hidden";
         }
+    }
+
+    const submit = (result: number) => {
+        flip();
+        onSubmit(result);
     }
 
     function cardContent(type: string, content: string): JSX.Element {
@@ -66,23 +72,23 @@ function Flashcard({ card: { question, answer }, type }: FlashcardProps) {
                                 ? <button onClick={flip} className={styles.mainBtn}>Flip</button>
                                 : <div className={styles.resultBtns}>
                                     <div className={styles.btnContainer}>
-                                        <button onClick={flip} className={styles.btn1}>1</button>
+                                        <button onClick={() => submit(1)} className={styles.btn1}>1</button>
                                         <span>Again</span>
                                     </div>
                                     <div className={styles.btnContainer}>
-                                        <button onClick={flip} className={styles.btn2}>2</button>
+                                        <button onClick={() => submit(2)} className={styles.btn2}>2</button>
                                         <span>Hard</span>
                                     </div>
                                     <div className={styles.btnContainer}>
-                                        <button onClick={flip} className={styles.btn3}>3</button>
+                                        <button onClick={() => submit(3)} className={styles.btn3}>3</button>
                                         <span>Medium</span>
                                     </div>
                                     <div className={styles.btnContainer}>
-                                        <button onClick={flip} className={styles.btn4}>4</button>
+                                        <button onClick={() => submit(4)} className={styles.btn4}>4</button>
                                         <span>Easy</span>
                                     </div>
                                     <div className={styles.btnContainer}>
-                                        <button onClick={flip} className={styles.btn5}>5</button>
+                                        <button onClick={() => submit(5)} className={styles.btn5}>5</button>
                                         <span>Perfect</span>
                                     </div>
                                 </div>}
