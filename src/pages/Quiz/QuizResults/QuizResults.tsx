@@ -28,7 +28,7 @@ function QuizResults({ open, onClose, finished }: QuizResultsProps) {
                 </div>
                 <span>How does spaced repetition work?</span>
             </div>
-        </div >
+        </div>
     )
 }
 

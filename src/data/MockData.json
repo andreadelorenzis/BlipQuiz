@@ -4,7 +4,6 @@
             "id": 0,
             "name": "Sistemi operativi",
             "nCardsStudied": 3,
-            "cardsToStudy": 11,
             "cards": [
                 {
                     "id": 1,
@@ -61,22 +60,39 @@
                     "question": "Spiegare il file system.",
                     "answer": "E' un programma che funge da intermediario..."
                 }
+            ],
+            "cardsToStudy": [
+                {
+                    "id": 1,
+                    "question": "Cos'è un sistema operativo?",
+                    "answer": "E' un programma che funge da intermediario..."
+                },
+                {
+                    "id": 2,
+                    "question": "Cos'è la memoria virtuale?",
+                    "answer": "E' un programma che funge da intermediario..."
+                },
+                {
+                    "id": 3,
+                    "question": "Spiegare il file system.",
+                    "answer": "E' un programma che funge da intermediario..."
+                }
             ]
         },
         {
             "id": 1,
             "name": "Analisi matematica",
             "nCardsStudied": 0,
-            "cardsToStudy": 0,
-            "cards": []
+            "cards": [],
+            "cardsToStudy": []
         },
         {
             "id": 2,
             "name": "Fisica generale",
             "nCards": 0,
             "nCardsStudied": 0,
-            "cardsToStudy": 0,
-            "cards": []
+            "cards": [],
+            "cardsToStudy": []
         }
     ]
 }

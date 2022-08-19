@@ -35,7 +35,7 @@ function ModalityChoice({ open, onClose, deck }: ModalityChoiceProps) {
                         </div>
                     </div>
                     <div className={styles.choice}>
-                        <div onClick={() => navigate("/deck:deckID/all_cards")} className={styles.button}>
+                        <div onClick={() => navigate(`/deck${deck.id}/all_cards`)} className={styles.button}>
                             <img src={cards} alt="cards" />
                             <p>All cards</p>
                         </div>

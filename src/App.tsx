@@ -1,7 +1,6 @@
 import React from 'react';
 import './assets/App.css';
 import LandingPage from './pages/LandingPage/LandingPage';
-import Home from './pages/Home';
 import Layout from './pages/Layout/Layout';
 import {
   Routes,
@@ -12,7 +11,8 @@ import {
 } from "react-router-dom";
 import Dashboard from './pages/Dashboard/Dashboard';
 import DeckDetails from './pages/DeckDetails/DeckDetails';
-import SpacedRepetition from './pages/SpacedRepetition/SpacedRepetition';
+import Quiz from './pages/Quiz/Quiz';
+import { QuizModality } from './pages/Quiz/QuizModality';
 
 function App() {
   return (
@@ -20,11 +20,11 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/home" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/deck:deckID" element={<DeckDetails />} />
         </Route>
-        <Route path="/deck:deckID/spaced_repetition" element={<SpacedRepetition />} />
+        <Route path="/deck:deckID/spaced_repetition" element={<Quiz quizModality={QuizModality.spacedRepetition} />} />
+        <Route path="/deck:deckID/all_cards" element={<Quiz quizModality={QuizModality.allCards} />} />
       </Routes>
     </div>
   );
