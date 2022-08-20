@@ -6,31 +6,30 @@ import tickWhite from "../../../assets/tick_white.png"
 import { useNavigate } from 'react-router-dom'
 
 type DeckProps = {
-    id: number;
-    name: string;
-    nCards: number;
-    nCardsStudied: number;
+    deck: any;
 };
 
-function Deck({ id, name, nCards, nCardsStudied }: DeckProps) {
+function Deck({ deck }: DeckProps) {
 
     const navigate = useNavigate();
 
     const calculateProgress = () => {
-        return (nCardsStudied / nCards) * 100;
+        return (deck.nCardsStudied / nCards) * 100;
     }
 
     const openDeck = () => {
-        navigate("/deck" + id);
+        navigate("/deck" + deck.id);
     }
+
+    const nCards = deck.cards.length;
 
     let content;
     if (nCards > 0) {
         content = (
             <div className={styles.data}>
-                {nCardsStudied == nCards
+                {deck.nCardsStudied == nCards
                     ? <span>You studied all the cards of this deck!</span>
-                    : <span>{nCardsStudied} of {nCards} card{nCards > 0 ? "s" : ""} studied</span>}
+                    : <span>{deck.nCardsStudied} of {nCards} card{nCards > 0 ? "s" : ""} studied</span>}
                 <div className={styles.progress}>
                     <div className={styles.bar}>
                         <div style={{
@@ -53,7 +52,7 @@ function Deck({ id, name, nCards, nCardsStudied }: DeckProps) {
     return (
         <div onClick={openDeck} className={styles.deck}>
             <div className={styles.top}>
-                <h3>{name}</h3>
+                <h3>{deck.name}</h3>
                 <span>{nCards} card{nCards > 0 ? "s" : ""}</span>
                 <img src={dots} alt="edit" className={styles.editImg} />
             </div>

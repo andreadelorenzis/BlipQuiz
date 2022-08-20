@@ -73,6 +73,7 @@
 .addBtn {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .addBtn span {

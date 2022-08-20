@@ -22,6 +22,11 @@ function EditCard({ open, onClose, content }: EditCardProps) {
         setIsFlipped(!isFlipped);
     }
 
+    const emptyContent = {
+        question: "",
+        answer: ""
+    }
+
     return (
         <div>
             <div className={styles.overlay}></div>
@@ -29,7 +34,16 @@ function EditCard({ open, onClose, content }: EditCardProps) {
                 <img src={close} alt="close" onClick={() => onClose()} className={styles.close} />
                 <h3 className={styles.title}>{content == null ? "Add card" : "Edit card"}</h3>
                 <ToggleSwitch onClick={flipCard} />
-                <CardEditor isFlipped={isFlipped} content={content} />
+                <CardEditor isFlipped={isFlipped} content={content == null ? emptyContent : content} />
+                <div className={styles.buttons}>
+                    <button onClick={() => onClose()} className={styles.cancel}>Cancel</button>
+                    <button className={styles.save}>{content == null ? "Create" : "Save"}</button>
+                </div>
+                <div className={styles.note}>
+                    <p>This editor uses Markdown.
+                        Don’t know how it works?</p>
+                    <span>Quick tutorial</span>
+                </div>
             </div>
         </div>
     )

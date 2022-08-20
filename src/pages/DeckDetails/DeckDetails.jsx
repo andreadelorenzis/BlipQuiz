@@ -8,14 +8,32 @@ import styles from "./DeckDetails.module.css";
 import Flashcard from '../../components/Flashcard/Flashcard';
 import { useParams, Link } from 'react-router-dom';
 import ModalityChoice from '../ModalityChoice/ModalityChoice';
+import EditCard from '../../components/EditCard/EditCard';
 
 function DeckDetails() {
     const { deckID } = useParams();
 
     const [choiceModal, setChoiceModal] = useState(false);
+    const [cardEditorOpen, setCardEditorOpen] = useState(false);
 
     const toggleChoiceModal = () => {
-        setChoiceModal(!choiceModal);
+        if (choiceModal) {
+            setChoiceModal(false);
+            document.body.style.overflow = "auto";
+        } else {
+            setChoiceModal(true);
+            document.body.style.overflow = "hidden";
+        }
+    }
+
+    const toggleEditor = () => {
+        if (cardEditorOpen) {
+            setCardEditorOpen(false);
+            document.body.style.overflow = "auto";
+        } else {
+            setCardEditorOpen(true);
+            document.body.style.overflow = "hidden";
+        }
     }
 
     return (
@@ -36,7 +54,7 @@ function DeckDetails() {
                         <img src={list} /> List view
                     </option>
                 </select>
-                <div className={styles.addBtn}>
+                <div onClick={toggleEditor} className={styles.addBtn}>
                     <span>Add</span>
                     <img src={plus} />
                 </div>
@@ -56,6 +74,7 @@ function DeckDetails() {
                 open={choiceModal}
                 onClose={toggleChoiceModal}
                 deck={data.decks[deckID]} />
+            <EditCard open={cardEditorOpen} onClose={toggleEditor} content={null} />
         </div>
     )
 }

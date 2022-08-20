@@ -41,15 +41,12 @@ function Dashboard() {
                 {data.decks.map((deck: any) => {
                     return (
                         <Deck
-                            id={deck.id}
-                            name={deck.name}
-                            nCards={deck.cards.length}
-                            nCardsStudied={deck.nCardsStudied}
+                            deck={deck}
                         />
                     )
                 })}
             </div>
-            <DeckEditor open={editorOpen} onClose={toggleEditor} isNew={true} />
+            <DeckEditor open={editorOpen} onClose={toggleEditor} isNew={false} />
         </div>
     )
 }
