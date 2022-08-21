@@ -93,5 +93,8 @@
             "cards": [],
             "cardsToStudy": []
         }
-    ]
+    ],
+    "user": {
+        "authenticated": "true"
+    }
 }

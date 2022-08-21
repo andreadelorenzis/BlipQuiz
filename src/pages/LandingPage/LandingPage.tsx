@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate, useLocation } from "react-router-dom";
+import { useAuth } from '../../auth/AuthProvider';
 import styles from "./LandingPage.module.css";
 import wave from "../../assets/wave.svg";
 import wave2 from "../../assets/wave4.svg";
@@ -24,6 +25,12 @@ export default function LandingPage() {
     const [bottomOffset, setBottomOffset] = useState(0);
     const bottomRef = useRef<any>(null);
 
+    let auth = useAuth();
+    const navigate = useNavigate();
+    if (auth.user) {
+        return <Navigate to={"/dashboard"} />
+    }
+
     function handleScroll() {
         setTopOffset(topOffset - window.pageYOffset);
         if (bottomRef.current != null && bottomRef.current.getBoundingClientRect().top < 700) {
@@ -31,23 +38,21 @@ export default function LandingPage() {
         }
     }
 
-    /* DA CANCELLARE */
-    const navigate = useNavigate();
-    const openDashboard = () => {
-        navigate("/dashboard");
+    const callToAction = () => {
+        navigate("/login");
     }
 
     return (
         <div className={styles.container}>
             <header style={{ backgroundImage: "url(" + wave + ")" }}>
                 <h1>Create and learn flashcards easily</h1>
-                <button onClick={openDashboard} className="mainBtn">Get started</button>
+                <button onClick={callToAction} className="mainBtn">Get started</button>
             </header>
             <img className={styles.balls} src={balls} style={{ top: topOffset }} />
             <section className={styles.section1}>
                 <h4>Main features</h4>
                 <h2>We offer the easiest tools to create and study flashcards</h2>
-                <button className="mainBtn">I want to try it!</button>
+                <button onClick={callToAction} className="mainBtn">I want to try it!</button>
                 <div className={styles.cardsContainer}>
                     <div className={styles.card}>
                         <img src={card} alt="flashcard image" />
@@ -107,7 +112,7 @@ export default function LandingPage() {
             </section>
             <section className={styles.section3} ref={bottomRef}>
                 <h2>Maximise your learning outcome today</h2>
-                <button className="mainBtn">Get started</button>
+                <button onClick={callToAction} className="mainBtn">Get started</button>
             </section>
             <footer>BlipQuiz.io 2022</footer>
             <img className={styles.balls} src={balls} style={{ bottom: bottomOffset }} />

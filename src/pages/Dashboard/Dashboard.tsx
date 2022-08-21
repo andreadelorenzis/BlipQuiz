@@ -7,7 +7,6 @@ import Deck from './Deck/Deck';
 import DeckEditor from './DeckEditor/DeckEditor';
 
 function Dashboard() {
-
     const [editorOpen, setEditorOpen] = useState(false);
 
     const toggleEditor = () => {
@@ -41,6 +40,7 @@ function Dashboard() {
                 {data.decks.map((deck: any) => {
                     return (
                         <Deck
+                            key={deck.id}
                             deck={deck}
                         />
                     )

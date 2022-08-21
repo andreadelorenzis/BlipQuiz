@@ -96,6 +96,10 @@
     margin-top: 20px;
 }
 
+.section3 button:hover {
+    background-color: #ebebeb;
+}
+
 .container footer {
     display: flex;
     align-items: center;

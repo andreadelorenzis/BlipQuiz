@@ -56,3 +56,102 @@
 .hide {
     display: none;
 }
+
+/* NAV AUTHENTICATED */
+.userButton {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.userButton .circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #EC407A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.userButton img {
+    width: 18px;
+    height: 18px;
+    margin-left: 5px;
+    transform: rotate(-90deg);
+}
+
+.linksLogged {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 250px;
+    padding: 25px 35px 20px 35px;
+    border: 0.5px solid #E4E4E4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    cursor: default;
+    transition: opacity 0.2s ease-in;
+    z-index: 100;
+}
+
+.linksLogged ul {
+    width: 100%;
+}
+
+.linksLogged li {
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.linksLogged .dot {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.linksLogged .dot::after {
+    display: block;
+    content: " ";
+    width: 10px;
+    height: 10px;
+    background-color: #3A86FF;
+    border-radius: 50%;
+    position: absolute;
+    left: 58px;
+    bottom: 10px;
+}
+
+.linksLogged li:hover {
+    text-decoration: underline;
+}
+
+.linksLogged .navFooter {
+    border-top: 1px solid #E4E4E4;
+    padding: 20px 0 0 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.linksLogged button {
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    background-color: #FFD700;
+    width: 100%;
+    padding: 8px 0;
+    border-radius: 20px;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
