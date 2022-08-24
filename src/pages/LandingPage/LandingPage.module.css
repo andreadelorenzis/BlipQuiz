@@ -1,8 +1,14 @@
-.container {
+.landing {
+    width: 100%;
     background-color: #fff;
+    margin: 0 auto;
 }
 
-.container h1 {
+.container {
+    max-width: 1000px;
+}
+
+.landing h1 {
     font-size: 35px;
     font-weight: 800;
     text-align: center;
@@ -11,7 +17,7 @@
     max-width: 550px;
 }
 
-.container h2 {
+.landing h2 {
     font-size: 25px;
     font-weight: 700;
     text-align: center;
@@ -20,13 +26,13 @@
     max-width: 550px;
 }
 
-.container h3 {
+.landing h3 {
     font-size: 20px;
     font-weight: 700;
     margin: 20px 0 20px 0;
 }
 
-.container h4 {
+.landing h4 {
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
@@ -34,22 +40,27 @@
     margin-bottom: 15px;
 }
 
-.container header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 450px;
-    padding: 100px 20px 0 20px;
+.landing header {
     background-repeat: no-repeat;
     background-position: bottom;
     background-color: #D8E7FF;
 }
 
-.container section {
+.landing header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 20px 0 20px;
+    height: 450px;
+    margin: 0 auto;
+}
+
+.landing section .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 50px 20px 100px 20px;
+    margin: 0 auto;
 }
 
 .cardsContainer {
@@ -102,14 +113,14 @@
     background-color: #ebebeb;
 }
 
-.container footer {
+.landing footer {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
 }
 
-.container {
+.landing {
     position: absolute;
 }
 
@@ -140,7 +151,7 @@
         margin: 35px 35px;
     }
 
-    .container header {
+    .landing header {
         height: 550px;
     }
 

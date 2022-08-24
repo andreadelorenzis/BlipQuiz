@@ -8,15 +8,17 @@ import { useEffect } from "react";
 
 type LoginProps = {
     open: boolean;
-    onClose: Function
+    onClose: Function;
+    openSignup: Function;
 };
 
-function Login({ open, onClose }: LoginProps) {
+function Login({ open, onClose, openSignup }: LoginProps) {
     let auth = useAuth();
     let location: any = useLocation();
     const navigate = useNavigate();
 
     let from = location.state?.from?.pathname || "/";
+
     const handleSubmit = (event: any) => {
         event.preventDefault();
         let formData = new FormData(event.currentTarget);
@@ -27,6 +29,11 @@ function Login({ open, onClose }: LoginProps) {
             navigate(from, { replace: true });
             onClose();
         });
+    }
+
+    const handleSignup = () => {
+        openSignup();
+        onClose();
     }
 
     if (!open) return null;
@@ -52,8 +59,8 @@ function Login({ open, onClose }: LoginProps) {
                     </form>
                 </div>
                 <div className={styles.footer}>
-                    <u>Create an account?</u>
-                    <u>Forgot password?</u>
+                    <p onClick={handleSignup}>Create an account?</p>
+                    <p>Forgot password?</p>
                 </div>
             </div>
         </div>

@@ -6,13 +6,22 @@ import google from "../../assets/google.png";
 
 type SignupProps = {
     open: boolean;
-    onClose: Function
+    onClose: Function;
+    openLogin: Function;
 };
 
-function Signup({ open, onClose }: SignupProps) {
+function Signup({ open, onClose, openLogin }: SignupProps) {
 
     if (!open) return null;
 
+    const handleSubmit = (event: any) => {
+
+    }
+
+    const handleLogin = () => {
+        openLogin();
+        onClose();
+    }
 
     return (
         <div>
@@ -35,8 +44,8 @@ function Signup({ open, onClose }: SignupProps) {
                     </form>
                 </div>
                 <div className={styles.footer}>
-                    <u>Create an account?</u>
-                    <u>Forgot password?</u>
+                    <p onClick={handleLogin}>Create an account?</p>
+                    <p>Forgot password?</p>
                 </div>
             </div>
         </div>

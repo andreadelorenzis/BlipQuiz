@@ -1,0 +1,135 @@
+.container h3:first-of-type {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding: 20px;
+}
+
+.container p {
+    font-size: 14px;
+}
+
+.container h3 {
+    text-align: left;
+    border-bottom: 1px solid #8B8C8E;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    margin-top: 30px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.text {
+    display: flex;
+    align-items: center;
+}
+
+.text img {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.text .info {
+    position: relative;
+    z-index: 100;
+}
+
+.text span {
+    position: absolute;
+    top: 0;
+    left: 40px;
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 10px;
+    display: none;
+}
+
+.text .info:hover .hide {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.row input {
+    width: 130px;
+    padding: 10px 10px 10px 15px;
+    border-radius: 7px;
+}
+
+.note {
+    background-color: #FFDD82;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.container select {
+    background-color: #fff;
+    color: #333;
+    width: 130px;
+    padding: 10px 10px 10px 15px;
+    cursor: pointer;
+}
+
+.toggle {
+    width: 120px;
+    display: flex;
+    justify-content: center;
+}
+
+.mainBtn {
+    background-color: #3A86FF;
+    color: #fff;
+    border-radius: 36px;
+    font-size: 16px;
+    width: 140px;
+    height: 40px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-top: 30px;
+}
+
+.mainBtn:hover {
+    background-color: #4E92FF;
+}
+
+/* Styling for medium devices */
+@media only screen and (min-width: 800px) {
+    .container {
+        max-width: 900px;
+    }
+
+    .columns {
+        display: flex;
+    }
+
+    .column {
+        width: 50%;
+        flex-grow: 1;
+    }
+
+    .column:first-of-type {}
+
+    .column:last-of-type {
+        margin-left: 100px;
+    }
+}
+
+/* Styling for large devices */
+@media only screen and (min-width: 1000px) {}

@@ -35,7 +35,7 @@ function EditCard({ open, onClose, content }: EditCardProps) {
             <div className={styles.container}>
                 <img src={close} alt="close" onClick={() => closeEditor()} className={styles.close} />
                 <h3 className={styles.title}>{content == null ? "Add card" : "Edit card"}</h3>
-                <ToggleSwitch onClick={flipCard} />
+                <ToggleSwitch onClick={flipCard} value1={"Front"} value2={"Back"} />
                 <CardEditor isFlipped={isFlipped} content={content == null ? emptyContent : content} />
                 <div className={styles.buttons}>
                     <button onClick={() => closeEditor()} className={styles.cancel}>Cancel</button>

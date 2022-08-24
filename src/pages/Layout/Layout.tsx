@@ -20,12 +20,12 @@ export default function Layout() {
     const [signupOpen, setSignupOpen] = useState(false);
 
     // da cancellare
-    /*
+
     useEffect(() => {
         auth.signin("sdf", "sdf", () => {
             console.log("signed in");
         });
-    }, []);*/
+    }, []);
     // -----------------
 
     useEffect(() => {
@@ -55,8 +55,10 @@ export default function Layout() {
     }
 
     const toggleLogin = () => {
-        if (!signupOpen) {
-            setLoginOpen(!loginOpen);
+        setLoginOpen(!loginOpen);
+
+        if (menuOpened) {
+            toggleMenu();
         }
 
         if (loginOpen && menuOpened) {
@@ -65,8 +67,10 @@ export default function Layout() {
     }
 
     const toggleSignup = () => {
-        if (!loginOpen) {
-            setSignupOpen(!signupOpen);
+        setSignupOpen(!signupOpen);
+
+        if (menuOpened) {
+            toggleMenu();
         }
 
         if (signupOpen && menuOpened) {
@@ -94,7 +98,7 @@ export default function Layout() {
     ];
 
     return (
-        <div>
+        <div className={styles.layout}>
             {auth.user
                 ? (<nav className={styles.nav}> {/* logged in */}
                     <div className={styles.container}>
@@ -113,7 +117,7 @@ export default function Layout() {
                                     <li><Link to="/dashboard">Dashboard</Link></li>
                                     <li className={styles.dot}><Link to="/review">Review</Link></li>
                                     <li><Link to="/profile">View profile</Link></li>
-                                    <li><Link to="/account">Manage account</Link></li>
+                                    <li><Link to="/settings">Settings</Link></li>
                                     <li onClick={handleLogout}>Logout</li>
                                 </ul>
                                 <div className={styles.navFooter}>
@@ -149,9 +153,12 @@ export default function Layout() {
                     </div>
                 </nav>)}
 
-            <Outlet />
-            <Login open={loginOpen} onClose={toggleLogin} />
-            <Signup open={signupOpen} onClose={toggleSignup} />
+            <div className={styles.content}>
+
+                <Outlet />
+            </div>
+            <Login open={loginOpen} onClose={toggleLogin} openSignup={toggleSignup} />
+            <Signup open={signupOpen} onClose={toggleSignup} openLogin={toggleLogin} />
         </div>
     )
 }
