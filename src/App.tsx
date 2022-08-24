@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './assets/App.css';
 import LandingPage from './pages/LandingPage/LandingPage';
 import Layout from './pages/Layout/Layout';
@@ -14,6 +14,24 @@ import { AuthProvider, useAuth } from './auth/AuthProvider';
 import RequireAuth from './auth/RequireAuth';
 
 function App() {
+  const [desktopDevice, setDesktopDevice] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("resize", updateDeviceSize);
+    updateDeviceSize();
+    return () => {
+      window.removeEventListener("resize", updateDeviceSize);
+    }
+  }, []);
+
+  // TODO: add device detection in global state
+  const updateDeviceSize = () => {
+    if (window.innerWidth > 800) {
+      setDesktopDevice(true);
+    } else {
+      setDesktopDevice(false);
+    }
+  }
 
   return (
     <div>
@@ -21,8 +39,8 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             {/* Unprotected Routes */}
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/login" element={<LandingPage />} />
+            <Route path="/" element={<LandingPage desktop={desktopDevice} />} />
+            <Route path="/login" element={<LandingPage desktop={desktopDevice} />} />
 
             {/* Protected Routes */}
             <Route

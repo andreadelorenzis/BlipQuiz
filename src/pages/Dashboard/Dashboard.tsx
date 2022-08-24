@@ -27,6 +27,7 @@ function Dashboard() {
                     <img className={styles.searchImg} src={search} alt="search" />
                 </div>
                 <button className={styles.addBtn} onClick={toggleEditor}>
+                    <p>Add new deck</p>
                     <img src={plus} alt="" />
                 </button>
             </div>

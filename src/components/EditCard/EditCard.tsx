@@ -7,10 +7,7 @@ import CardEditor from './CardEditor/CardEditor';
 type EditCardProps = {
     open: boolean;
     onClose: Function;
-    content: {
-        question: string;
-        answer: string;
-    }
+    content: any
 };
 
 function EditCard({ open, onClose, content }: EditCardProps) {
@@ -22,6 +19,11 @@ function EditCard({ open, onClose, content }: EditCardProps) {
         setIsFlipped(!isFlipped);
     }
 
+    const closeEditor = () => {
+        onClose();
+        setIsFlipped(false);
+    }
+
     const emptyContent = {
         question: "",
         answer: ""
@@ -31,12 +33,12 @@ function EditCard({ open, onClose, content }: EditCardProps) {
         <div>
             <div className={styles.overlay}></div>
             <div className={styles.container}>
-                <img src={close} alt="close" onClick={() => onClose()} className={styles.close} />
+                <img src={close} alt="close" onClick={() => closeEditor()} className={styles.close} />
                 <h3 className={styles.title}>{content == null ? "Add card" : "Edit card"}</h3>
                 <ToggleSwitch onClick={flipCard} />
                 <CardEditor isFlipped={isFlipped} content={content == null ? emptyContent : content} />
                 <div className={styles.buttons}>
-                    <button onClick={() => onClose()} className={styles.cancel}>Cancel</button>
+                    <button onClick={() => closeEditor()} className={styles.cancel}>Cancel</button>
                     <button className={styles.save}>{content == null ? "Create" : "Save"}</button>
                 </div>
                 <div className={styles.note}>

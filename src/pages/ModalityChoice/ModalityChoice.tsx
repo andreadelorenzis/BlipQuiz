@@ -8,7 +8,6 @@ import cards from "../../assets/cards.png";
 type ModalityChoiceProps = {
     open: boolean;
     onClose: Function;
-    cardsStudied: number;
     deck: any;
 }
 
@@ -22,7 +21,7 @@ function ModalityChoice({ open, onClose, deck }: ModalityChoiceProps) {
             <div className={styles.overlay}></div>
             <div className={styles.container}>
                 <img src={close} alt="close" onClick={() => onClose()} className={styles.close} />
-                <h2>Choose the modality</h2>
+                <h2 className={styles.title}>Choose the modality</h2>
                 <div className={styles.choices}>
                     <div className={styles.choice}>
                         <div onClick={() => navigate(`/deck${deck.id}/spaced_repetition`)} className={styles.button}>

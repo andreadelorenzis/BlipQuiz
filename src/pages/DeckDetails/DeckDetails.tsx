@@ -9,9 +9,10 @@ import Flashcard from '../../components/Flashcard/Flashcard';
 import { useParams, Link } from 'react-router-dom';
 import ModalityChoice from '../ModalityChoice/ModalityChoice';
 import EditCard from '../../components/EditCard/EditCard';
+import { FlashcardType } from '../../components/Flashcard/FlashcardType';
 
 function DeckDetails() {
-    const { deckID } = useParams();
+    const { deckID } = useParams() as any;
 
     const [choiceModal, setChoiceModal] = useState(false);
     const [cardEditorOpen, setCardEditorOpen] = useState(false);
@@ -67,14 +68,23 @@ function DeckDetails() {
                     </div>
                     : null}
                 {data.decks[deckID].cards.map((card) => {
-                    return <Flashcard key={card.id} card={card} />
+                    return <div className={styles.card}>
+                        <Flashcard
+                            key={card.id}
+                            card={card}
+                            type={FlashcardType.view}
+                            onSubmit={null} />
+                    </div>
                 })}
             </div>
             <ModalityChoice
                 open={choiceModal}
                 onClose={toggleChoiceModal}
                 deck={data.decks[deckID]} />
-            <EditCard open={cardEditorOpen} onClose={toggleEditor} content={null} />
+            <EditCard
+                open={cardEditorOpen}
+                onClose={toggleEditor}
+                content={null} />
         </div>
     )
 }

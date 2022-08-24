@@ -39,8 +39,9 @@ function Quiz({ quizModality }: QuizProps) {
     const card = cards[currentCard - 1];
 
     const submit = (result: any) => {
-        console.log(result);
+        // save result
 
+        // check end of session
         if (currentCard == nCards) {
             if (quizModality == QuizModality.allCards) {
                 // after 0.2 seconds, show deck results
@@ -76,9 +77,9 @@ function Quiz({ quizModality }: QuizProps) {
     }
 
     return (
-        <div>
+        <div className={styles.container}>
             <nav className={styles.nav}>
-                <Link to="/Dashboard">
+                <Link to="/Dashboard" className={styles.navBtn}>
                     <img src={arrow} alt="arrow" />
                     <p>Sistemi operativi</p>
                 </Link>

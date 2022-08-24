@@ -53,10 +53,19 @@
     margin: 0 auto;
     margin-top: 10px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .addBtn:hover {
     background-color: #8da0ae;
+}
+
+.addBtn img {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
 }
 
 .progress {
@@ -86,3 +95,26 @@
     margin-left: 10px;
     margin-top: 5px;
 }
+
+/* Styling for medium devices */
+@media only screen and (min-width: 800px) {
+    .deck {
+        height: 150px;
+    }
+
+    .data {
+        margin-top: 10px;
+    }
+
+    .deck h3 {
+        font-size: 18px;
+    }
+
+    .addBtn {
+        width: 200px;
+        height: 40px;
+    }
+}
+
+/* Styling for large devices */
+@media only screen and (min-width: 1000px) {}

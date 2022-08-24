@@ -1,9 +1,13 @@
 .nav {
+    background-color: #fff;
+}
+
+.nav .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff;
     padding: 10px 20px 10px 20px;
+    margin: 0 auto;
 }
 
 .logo {
@@ -23,7 +27,7 @@
     height: 30px;
 }
 
-.nav .links {
+.nav .container .links {
     position: fixed;
     width: 100%;
     height: 100vh;
@@ -37,11 +41,11 @@
     z-index: 2;
 }
 
-.nav .links li:first-of-type {
+.nav .container .links li:first-of-type {
     margin-top: 50px;
 }
 
-.nav .links li {
+.nav .container .links li {
     font-size: 20px;
     width: 100%;
     text-align: center;
@@ -49,7 +53,7 @@
     cursor: pointer;
 }
 
-.nav .links li:hover {
+.nav .container .links li:hover {
     text-decoration: underline;
 }
 
@@ -67,7 +71,7 @@
 
 .userButton .circle {
     width: 35px;
-    height: 35px;
+    min-height: 35px;
     border-radius: 50%;
     background: #EC407A;
     display: flex;
@@ -155,3 +159,17 @@
 .hide {
     display: none;
 }
+
+/* Styling for medium devices */
+@media only screen and (min-width: 800px) {
+    .nav .container {
+        max-width: 900px;
+    }
+
+    .nav .container .links {
+        width: 400px;
+    }
+}
+
+/* Styling for large devices */
+@media only screen and (min-width: 1000px) {}

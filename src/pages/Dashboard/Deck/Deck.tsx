@@ -1,9 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import styles from "./Deck.module.css"
 import dots from "../../../assets/dots.png"
 import tickBlue from "../../../assets/tick_blue.png"
 import tickWhite from "../../../assets/tick_white.png"
-import { useNavigate } from 'react-router-dom'
+import plus from "../../../assets/plus2.png"
 
 type DeckProps = {
     deck: any;
@@ -46,7 +47,10 @@ function Deck({ deck }: DeckProps) {
             </div>
         )
     } else {
-        content = <button className={styles.addBtn}>Add cards</button>
+        content = <button className={styles.addBtn}>
+            Add cards
+            <img src={plus} alt="" />
+        </button>
     }
 
     return (

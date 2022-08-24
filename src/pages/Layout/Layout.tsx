@@ -20,11 +20,12 @@ export default function Layout() {
     const [signupOpen, setSignupOpen] = useState(false);
 
     // da cancellare
+    /*
     useEffect(() => {
         auth.signin("sdf", "sdf", () => {
             console.log("signed in");
         });
-    }, []);
+    }, []);*/
     // -----------------
 
     useEffect(() => {
@@ -43,11 +44,13 @@ export default function Layout() {
     const toggleMenu = () => {
         if (menuOpened) {
             setMenuOpened(false);
-            document.body.style.overflow = "auto";
+            if (auth.user == null)
+                document.body.style.overflow = "auto";
         }
         else {
             setMenuOpened(true);
-            document.body.style.overflow = "hidden";
+            if (auth.user == null)
+                document.body.style.overflow = "hidden";
         }
     }
 
@@ -93,52 +96,56 @@ export default function Layout() {
     return (
         <div>
             {auth.user
-                ? (<nav className={styles.nav}>
-                    <Link to="/">
-                        <img src={logo} alt="BlipQuiz" className={styles.logo} />
-                    </Link>
-                    <div className={styles.userButton} onClick={toggleMenu}>
-                        <div className={styles.circle}>
-                            A
-                        </div>
-                        <img src={arrow} />
-                        <div ref={linksRef} className={styles.linksLogged} style={menuOpened
-                            ? { display: "block" }
-                            : { display: "none" }}>
-                            <ul>
-                                <li><Link to="/dashboard">Dashboard</Link></li>
-                                <li className={styles.dot}><Link to="/review">Review</Link></li>
-                                <li><Link to="/profile">View profile</Link></li>
-                                <li><Link to="/account">Manage account</Link></li>
-                                <li onClick={handleLogout}>Logout</li>
-                            </ul>
-                            <div className={styles.navFooter}>
-                                <button>Go premium</button>
+                ? (<nav className={styles.nav}> {/* logged in */}
+                    <div className={styles.container}>
+                        <Link to="/">
+                            <img src={logo} alt="BlipQuiz" className={styles.logo} />
+                        </Link>
+                        <div className={styles.userButton} onClick={toggleMenu}>
+                            <div className={styles.circle}>
+                                A
+                            </div>
+                            <img src={arrow} />
+                            <div ref={linksRef} className={styles.linksLogged} style={menuOpened
+                                ? { display: "block" }
+                                : { display: "none" }}>
+                                <ul>
+                                    <li><Link to="/dashboard">Dashboard</Link></li>
+                                    <li className={styles.dot}><Link to="/review">Review</Link></li>
+                                    <li><Link to="/profile">View profile</Link></li>
+                                    <li><Link to="/account">Manage account</Link></li>
+                                    <li onClick={handleLogout}>Logout</li>
+                                </ul>
+                                <div className={styles.navFooter}>
+                                    <button>Go premium</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </nav>)
-                : (<nav className={styles.nav}>
-                    <Link to="/">
-                        <img src={logo} alt="BlipQuiz" className={styles.logo} />
-                    </Link>
-                    {menuOpened
-                        ? <img src={close} alt="close" className={styles.close} onClick={toggleMenu} />
-                        : <img src={menu} alt="menu" className={styles.menu} onClick={toggleMenu} />}
-                    <div>
-                        <ul className={styles.links} style={menuOpened ? { right: "0" } : { right: "-100%" }}>
-                            <li onClick={toggleLogin}>Login</li>
-                            <li onClick={toggleSignup}>Signup</li>
-                            {
-                                menuItems.map(item =>
-                                    <li key={item.link}>
-                                        <Link to={item.path} onClick={toggleMenu}>
-                                            {item.link}
-                                        </Link>
-                                    </li>
-                                )
-                            }
-                        </ul>
+                : (<nav className={styles.nav}> {/* not logged in */}
+                    <div className={styles.container}>
+                        <Link to="/">
+                            <img src={logo} alt="BlipQuiz" className={styles.logo} />
+                        </Link>
+                        {menuOpened
+                            ? <img src={close} alt="close" className={styles.close} onClick={toggleMenu} />
+                            : <img src={menu} alt="menu" className={styles.menu} onClick={toggleMenu} />}
+                        <div>
+                            <ul className={styles.links} style={menuOpened ? { right: "0" } : { right: "-100%" }}>
+                                <li onClick={toggleLogin}>Login</li>
+                                <li onClick={toggleSignup}>Signup</li>
+                                {
+                                    menuItems.map(item =>
+                                        <li key={item.link}>
+                                            <Link to={item.path} onClick={toggleMenu}>
+                                                {item.link}
+                                            </Link>
+                                        </li>
+                                    )
+                                }
+                            </ul>
+                        </div>
                     </div>
                 </nav>)}
 

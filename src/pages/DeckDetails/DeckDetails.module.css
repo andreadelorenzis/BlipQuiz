@@ -23,6 +23,12 @@
     margin-bottom: 20px;
 }
 
+.card {
+    width: 100%;
+    height: 350px;
+    margin-bottom: 25px;
+}
+
 .searchBar {
     display: flex;
     align-items: center;
@@ -70,6 +76,10 @@
     margin-bottom: 20px;
 }
 
+.buttonBar select {
+    cursor: pointer;
+}
+
 .addBtn {
     display: flex;
     align-items: center;
@@ -88,7 +98,7 @@
 }
 
 .noCards {
-    margin: auto 0;
+    margin: auto auto;
     margin-top: 100px;
     text-align: center;
 }
@@ -97,3 +107,69 @@
     font-size: 18px;
     margin-bottom: 15px;
 }
+
+/* Styling for medium devices */
+@media only screen and (min-width: 900px) {
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .container h3 {
+        font-size: 26px;
+    }
+
+    .cardsContainer {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .cardsContainer .card {
+        min-width: 400px;
+    }
+
+    .navBtn span {
+        font-size: 16px;
+    }
+
+    .navBtn img {
+        width: 25px;
+        height: 25px;
+        margin-right: 8px;
+    }
+
+    .mainBtn {
+        width: 130px;
+        height: 40px;
+    }
+
+    .container select {
+        font-size: 16px;
+    }
+
+    .addBtn span {
+        font-size: 16px;
+    }
+
+    .addBtn img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .searchBar {
+        height: 50px;
+        border-radius: 7px;
+    }
+
+    .searchBar input {
+        padding: 5px 15px 5px 15px;
+    }
+
+    .searchBar img {
+        margin-right: 15px;
+    }
+}
+
+/* Styling for large devices */
+@media only screen and (min-width: 1000px) {}

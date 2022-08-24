@@ -17,7 +17,7 @@
     display: flex;
     align-items: center;
     background-color: #fff;
-    width: 180px;
+    width: 250px;
     height: 40px;
     border-radius: 6px;
 }
@@ -39,11 +39,21 @@
     border-radius: 5px;
     padding: 5px;
     height: 40px;
-    width: 40px;
+    min-width: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    margin-left: 15px;
+    color: #fff;
+}
+
+.addBtn img {
+    margin-left: 1px;
+}
+
+.addBtn p {
+    display: none;
 }
 
 .noDecks {
@@ -66,3 +76,32 @@
     cursor: pointer;
     margin-top: 15px;
 }
+
+/* Styling for medium devices */
+@media only screen and (min-width: 800px) {
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .addBtn {
+        padding: 5px 10px 5px 10px;
+    }
+
+    .addBtn img {
+        margin-left: 8px;
+    }
+
+    .addBtn p {
+        display: inline;
+        margin-left: 5px;
+    }
+
+    .searchBar {
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
+/* Styling for large devices */
+@media only screen and (min-width: 1000px) {}

@@ -11,15 +11,37 @@ import offline from "../../assets/offline.png";
 import key from "../../assets/key.png";
 import share from "../../assets/share.png";
 import balls from "../../assets/balls.png";
+import balls2 from "../../assets/balls2.png";
+import balls3 from "../../assets/balls3.png";
 
-export default function LandingPage() {
+export default function LandingPage({ desktop }: { desktop: boolean }) {
+    const [desktopDevice, setDesktopDevice] = useState(false);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
+        window.addEventListener("resize", updateDeviceSize);
+        updateDeviceSize();
         return () => {
             window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("resize", updateDeviceSize);
         }
     }, []);
+
+    // TODO: add device detection in global state
+    const updateDeviceSize = () => {
+        if (window.innerWidth > 800) {
+            setDesktopDevice(true);
+        } else {
+            setDesktopDevice(false);
+        }
+    }
+
+    function handleScroll() {
+        setTopOffset(topOffset - window.pageYOffset);
+        if (bottomRef.current != null && bottomRef.current.getBoundingClientRect().top < 700) {
+            setBottomOffset(bottomOffset - bottomRef.current.getBoundingClientRect().top + 645);
+        }
+    }
 
     const [topOffset, setTopOffset] = useState(60);
     const [bottomOffset, setBottomOffset] = useState(0);
@@ -31,12 +53,6 @@ export default function LandingPage() {
         return <Navigate to={"/dashboard"} />
     }
 
-    function handleScroll() {
-        setTopOffset(topOffset - window.pageYOffset);
-        if (bottomRef.current != null && bottomRef.current.getBoundingClientRect().top < 700) {
-            setBottomOffset(bottomOffset - bottomRef.current.getBoundingClientRect().top + 550);
-        }
-    }
 
     const callToAction = () => {
         navigate("/login");
@@ -45,10 +61,10 @@ export default function LandingPage() {
     return (
         <div className={styles.container}>
             <header style={{ backgroundImage: "url(" + wave + ")" }}>
-                <h1>Create and learn flashcards easily</h1>
+                <h1>Create and learn flashcards easily with BlipQuiz</h1>
                 <button onClick={callToAction} className="mainBtn">Get started</button>
             </header>
-            <img className={styles.balls} src={balls} style={{ top: topOffset }} />
+            <img className={styles.balls} src={desktopDevice ? balls2 : balls} style={{ top: topOffset }} />
             <section className={styles.section1}>
                 <h4>Main features</h4>
                 <h2>We offer the easiest tools to create and study flashcards</h2>
@@ -115,7 +131,7 @@ export default function LandingPage() {
                 <button onClick={callToAction} className="mainBtn">Get started</button>
             </section>
             <footer>BlipQuiz.io 2022</footer>
-            <img className={styles.balls} src={balls} style={{ bottom: bottomOffset }} />
+            <img className={styles.balls} src={desktopDevice ? balls3 : balls} style={{ bottom: bottomOffset }} />
         </div>
     )
 }

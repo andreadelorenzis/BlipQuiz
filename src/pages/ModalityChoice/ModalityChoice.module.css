@@ -27,7 +27,7 @@
     padding: 20px;
 }
 
-.container h2 {
+.title {
     font-weight: 600;
     margin-top: 100px;
     margin-bottom: 50px;
@@ -106,3 +106,23 @@
         top: 0;
     }
 }
+
+/* Styling for medium devices */
+@media only screen and (min-width: 800px) {
+    .container {
+        width: 500px;
+        height: 600px;
+        border-radius: 20px;
+        margin: auto;
+        margin-top: 100px;
+        padding: 40px;
+    }
+
+    .title {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+}
+
+/* Styling for large devices */
+@media only screen and (min-width: 1000px) {}
