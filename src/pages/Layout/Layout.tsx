@@ -115,9 +115,9 @@ export default function Layout() {
                                 : { display: "none" }}>
                                 <ul>
                                     <li><Link to="/dashboard">Dashboard</Link></li>
-                                    <li className={styles.dot}><Link to="/review">Review</Link></li>
-                                    <li><Link to="/profile">View profile</Link></li>
-                                    <li><Link to="/settings">Settings</Link></li>
+                                    <li><Link to="/statistics">Statistics</Link></li>
+                                    <li><Link to="/settings">Study settings</Link></li>
+                                    <li><Link to="/account">Account settings</Link></li>
                                     <li onClick={handleLogout}>Logout</li>
                                 </ul>
                                 <div className={styles.navFooter}>

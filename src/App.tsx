@@ -13,6 +13,7 @@ import { QuizModality } from './pages/Quiz/QuizModality';
 import { AuthProvider, useAuth } from './auth/AuthProvider';
 import RequireAuth from './auth/RequireAuth';
 import Settings from './pages/Settings/Settings';
+import Account from './pages/Account/Account';
 
 function App() {
   const [desktopDevice, setDesktopDevice] = useState(false);
@@ -63,6 +64,14 @@ function App() {
               element={
                 <RequireAuth>
                   <Settings />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/account"
+              element={
+                <RequireAuth>
+                  <Account />
                 </RequireAuth>
               }
             />
