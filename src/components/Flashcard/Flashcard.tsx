@@ -72,24 +72,20 @@ function Flashcard({ card: { question, answer }, type, onSubmit }: FlashcardProp
                                 ? <button onClick={flip} className={styles.mainBtn}>Flip</button>
                                 : <div className={styles.resultBtns}>
                                     <div className={styles.btnContainer}>
-                                        <button onClick={() => submit(1)} className={styles.btn1}>1</button>
-                                        <span>Again</span>
+                                        <span>1min</span>
+                                        <button onClick={() => submit(1)} className={styles.btn1}>Again</button>
                                     </div>
                                     <div className={styles.btnContainer}>
-                                        <button onClick={() => submit(2)} className={styles.btn2}>2</button>
-                                        <span>Hard</span>
+                                        <span>6min</span>
+                                        <button onClick={() => submit(2)} className={styles.btn2}>Hard</button>
                                     </div>
                                     <div className={styles.btnContainer}>
-                                        <button onClick={() => submit(3)} className={styles.btn3}>3</button>
-                                        <span>Medium</span>
+                                        <span>10min</span>
+                                        <button onClick={() => submit(3)} className={styles.btn3}>Good</button>
                                     </div>
                                     <div className={styles.btnContainer}>
-                                        <button onClick={() => submit(4)} className={styles.btn4}>4</button>
-                                        <span>Easy</span>
-                                    </div>
-                                    <div className={styles.btnContainer}>
-                                        <button onClick={() => submit(5)} className={styles.btn5}>5</button>
-                                        <span>Perfect</span>
+                                        <span>3d</span>
+                                        <button onClick={() => submit(4)} className={styles.btn4}>Easy</button>
                                     </div>
                                 </div>}
                         </div>

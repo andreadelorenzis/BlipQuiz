@@ -42,6 +42,10 @@
     margin: 0 auto;
 }
 
+.studyOverview {
+    margin-bottom: 20px;
+}
+
 .progressBar {
     width: 100%;
     height: 40px;

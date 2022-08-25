@@ -10,9 +10,11 @@ import { useParams, Link } from 'react-router-dom';
 import ModalityChoice from '../ModalityChoice/ModalityChoice';
 import EditCard from '../../components/EditCard/EditCard';
 import { FlashcardType } from '../../components/Flashcard/FlashcardType';
+import CardOverview from '../../components/CardOverview/StudyOverview';
 
 function DeckDetails() {
     const { deckID } = useParams() as any;
+    const deck: any = data.decks.find((deck: any) => deck.id == deckID);
 
     const [choiceModal, setChoiceModal] = useState(false);
     const [cardEditorOpen, setCardEditorOpen] = useState(false);
@@ -43,8 +45,17 @@ function DeckDetails() {
                 <img src={arrow} alt="arrow" />
                 <span>Dashboard</span>
             </Link>
-            <h3>Sistemi operativi</h3>
-            <button onClick={toggleChoiceModal} className={styles.mainBtn}>Study</button>
+            <div className={styles.header}>
+                <h3>{deck.name}</h3>
+                <div className={styles.deckOverview}>
+                    <CardOverview values={{
+                        new: 0,
+                        learning: 0,
+                        review: 0
+                    }} />
+                </div>
+                <button onClick={toggleChoiceModal} className={styles.mainBtn}>Study</button>
+            </div>
             <div className={styles.searchBar}>
                 <input type="text" placeholder='Search' />
                 <img className={styles.searchImg} src={search} alt="search" />
@@ -61,13 +72,13 @@ function DeckDetails() {
                 </div>
             </div>
             <div className={styles.cardsContainer}>
-                {data.decks[deckID].cards.length == 0
+                {deck.cards.length == 0
                     ? <div className={styles.noCards}>
                         <p>No Cards in this deck yet</p>
                         <button className={styles.mainBtn}>Create a card</button>
                     </div>
                     : null}
-                {data.decks[deckID].cards.map((card) => {
+                {deck.cards.map((card: any) => {
                     return <div className={styles.card}>
                         <Flashcard
                             key={card.id}

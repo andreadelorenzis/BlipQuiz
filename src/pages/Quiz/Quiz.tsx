@@ -10,6 +10,7 @@ import QuizResults from './QuizResults/QuizResults';
 import { QuizModality } from './QuizModality';
 import DeckResults from "./DeckResults/DeckResults";
 import { idText } from 'typescript';
+import StudyOverview from '../../components/CardOverview/StudyOverview';
 
 type QuizProps = {
     quizModality: QuizModality
@@ -85,6 +86,13 @@ function Quiz({ quizModality }: QuizProps) {
                 </Link>
             </nav>
             <div className={styles.content}>
+                <div className={styles.studyOverview}>
+                    <StudyOverview values={{
+                        new: 0,
+                        learning: 0,
+                        review: 0
+                    }} />
+                </div>
                 <div className={styles.progressBar}>
                     <ProgressBar nCards={nCardsToStudy} currentCard={cardCounter} />
                 </div>

@@ -1,0 +1,26 @@
+.deckOverview {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+}
+
+.deckOverview .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.deckOverview .item:nth-child(2) {
+    margin-left: 40px;
+    margin-right: 35px;
+}
+
+.deckOverview .item span {
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 600;
+}

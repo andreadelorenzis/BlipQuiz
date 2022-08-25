@@ -121,11 +121,13 @@
 }
 
 .resultBtns .btnContainer button {
-    min-width: 35px;
+    width: 60px;
     min-height: 35px;
     border-radius: 5px;
     color: #fff;
     cursor: pointer;
+    margin-top: 8px;
+    font-size: 14px;
 }
 
 .resultBtns .btnContainer span {
@@ -143,7 +145,7 @@
 }
 
 .btn3 {
-    background-color: #FFD43A;
+    background-color: #3A86FF;
 }
 
 .btn4 {

@@ -6,9 +6,9 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
     border-radius: 5px;
     margin-bottom: 20px;
-    padding: 10px 20px 10px 20px;
-    height: 120px;
+    padding: 20px;
     width: 100%;
+    min-height: 180px;
 }
 
 .deck:hover {
@@ -44,30 +44,6 @@
     flex-direction: column;
 }
 
-.addBtn {
-    width: 150px;
-    height: 33px;
-    background: #7D93A4;
-    border-radius: 36px;
-    color: #fff;
-    margin: 0 auto;
-    margin-top: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.addBtn:hover {
-    background-color: #8da0ae;
-}
-
-.addBtn img {
-    width: 20px;
-    height: 20px;
-    margin-left: 10px;
-}
-
 .progress {
     display: flex;
     align-items: center;
@@ -96,10 +72,48 @@
     margin-top: 5px;
 }
 
+.deckOverview {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.noCards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addBtn {
+    width: 150px;
+    height: 33px;
+    background: #7D93A4;
+    border-radius: 36px;
+    color: #fff;
+    margin: 0 auto;
+    margin-top: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addBtn:hover {
+    background-color: #8da0ae;
+}
+
+.addBtn img {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+
 /* Styling for medium devices */
 @media only screen and (min-width: 800px) {
     .deck {
-        height: 150px;
+        min-height: 200px;
     }
 
     .data {
@@ -111,8 +125,8 @@
     }
 
     .addBtn {
-        width: 200px;
-        height: 40px;
+        width: 150px;
+        height: 35px;
     }
 }
 

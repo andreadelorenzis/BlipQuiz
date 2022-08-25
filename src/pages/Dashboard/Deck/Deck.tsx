@@ -5,6 +5,7 @@ import dots from "../../../assets/dots.png"
 import tickBlue from "../../../assets/tick_blue.png"
 import tickWhite from "../../../assets/tick_white.png"
 import plus from "../../../assets/plus2.png"
+import CardOverview from '../../../components/CardOverview/StudyOverview'
 
 type DeckProps = {
     deck: any;
@@ -44,13 +45,24 @@ function Deck({ deck }: DeckProps) {
                         ? <img src={tickBlue} className={styles.tickImg} />
                         : <img src={tickWhite} className={styles.tickImg} />}
                 </div>
+                <div className={styles.deckOverview}>
+                    <CardOverview values={{
+                        new: 0,
+                        learning: 0,
+                        review: 0
+                    }} />
+                </div>
             </div>
         )
     } else {
-        content = <button className={styles.addBtn}>
-            Add cards
-            <img src={plus} alt="" />
-        </button>
+        content =
+            <div>
+                <p className={styles.noCards}>No cards in this deck.</p>
+                <button className={styles.addBtn}>
+                    Add cards
+                    <img src={plus} alt="" />
+                </button>
+            </div>
     }
 
     return (
