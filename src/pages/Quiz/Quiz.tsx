@@ -9,8 +9,9 @@ import { FlashcardType } from '../../components/Flashcard/FlashcardType';
 import QuizResults from './QuizResults/QuizResults';
 import { QuizModality } from './QuizModality';
 import DeckResults from "./DeckResults/DeckResults";
-import { idText } from 'typescript';
 import StudyOverview from '../../components/CardOverview/StudyOverview';
+import { useNotification } from '../../components/Notification/NotificationProvider';
+
 
 type QuizProps = {
     quizModality: QuizModality
@@ -26,6 +27,14 @@ function Quiz({ quizModality }: QuizProps) {
     const [showQuizResults, setShowQuizResults] = useState(false);
     const [showDeckResults, setShowDeckResults] = useState(false);
     const [finished, setFinished] = useState(false);
+    const dispatch = useNotification();
+
+    const handleNewNotification = (color: String, value: String) => {
+        dispatch({
+            color: color,
+            message: "Card will be shown again in " + value
+        });
+    }
 
     useEffect(() => {
         if (nCards >= SESSION ? SESSION : nCards) {
@@ -41,6 +50,20 @@ function Quiz({ quizModality }: QuizProps) {
 
     const submit = (result: any) => {
         // save result
+        switch (result) {
+            case 1:
+                handleNewNotification("#FF523A", "1 min");
+                break;
+            case 2:
+                handleNewNotification("#FFA43A", "5 min");
+                break;
+            case 3:
+                handleNewNotification("#3A86FF", "1 hour");
+                break;
+            case 4:
+                handleNewNotification("#91FF3A", "1 day");
+                break;
+        }
 
         // check end of session
         if (currentCard == nCards) {

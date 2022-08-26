@@ -1,28 +1,31 @@
 import React from 'react'
 import styles from "./Notification.module.css";
 
-function Notification({ props }: any) {
-    React.useEffect(() => {
-        handleStartTimer();
-    }, []);
+function Notification(props: any) {
+    const [exit, setExit] = React.useState(false);
 
-    const handleStartTimer = () => {
-        setInterval(() => {
-            handleCloseNotification();
-        }, 4000);
-    };
+    React.useEffect(() => {
+        handleCloseNotification();
+    }, []);
 
     const handleCloseNotification = () => {
         setTimeout(() => {
+            setExit(true);
+        }, 1600);
+        setTimeout(() => {
             props.dispatch({
-                type: 'REMOVE_NOTIFICATION', id: props.id
+                type: "REMOVE_NOTIFICATION",
+                payload: {
+                    id: props.id
+                }
             });
-        }, 500);
+        }, 2000);
     };
 
     return (
-        <div className={styles.notification} style={{ backgroundColor: props.note.color }}>
-            <p>{props.note.message}</p>
+        <div className={`${styles.notificationItem} ${exit ? styles.exit : ''}`}
+            style={{ backgroundColor: props.color }}>
+            {props.message}
         </div>
     )
 }

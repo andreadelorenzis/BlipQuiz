@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './assets/App.css';
 import LandingPage from './pages/LandingPage/LandingPage';
 import Layout from './pages/Layout/Layout';
@@ -15,11 +15,9 @@ import RequireAuth from './auth/RequireAuth';
 import Settings from './pages/Settings/Settings';
 import Account from './pages/Account/Account';
 import NotificationProvider from './components/Notification/NotificationProvider';
-import { useNotification } from "./components/Notification/NotificationProvider";
 
 function App() {
   const [desktopDevice, setDesktopDevice] = useState(false);
-  const dispatch: any = useNotification();
 
   useEffect(() => {
     window.addEventListener("resize", updateDeviceSize);
@@ -37,23 +35,6 @@ function App() {
       setDesktopDevice(false);
     }
   }
-
-  /* TODO add notification system  
-  const handleNewNotification = () => {
-    dispatch({
-      type: "ADD_NOTIFICATION",
-      payload: {
-        id: 1,
-        color: "red",
-        message: "this is a test",
-      }
-    });
-  }
-
-  useEffect(() => {
-    handleNewNotification();
-  }, [])
-  */
 
   return (
     <div>

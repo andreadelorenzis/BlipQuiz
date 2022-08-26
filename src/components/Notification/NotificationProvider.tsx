@@ -1,27 +1,44 @@
 import React from 'react'
 import { createContext, useContext, useReducer, useState } from 'react';
 import Notification from './Notification';
+import styles from "./Notification.module.css";
 
-const NotificationContext = createContext({});
+const NotificationContext = createContext<any>(null);
 
 const NotificationProvider = (props: any) => {
     const [state, dispatch] = useReducer((state: any, action: any) => {
         switch (action.type) {
-            case 'ADD_NOTIFICATION':
-                return [...state, { ...action.payload }];
-            case 'REMOVE_NOTIFICATION':
-                return state.filter((notification: any) => notification.id !== action.id);
+            case "ADD_NOTIFICATION":
+                return [...state, action.payload];
+            case "REMOVE_NOTIFICATION":
+                return state.filter((notification: any) =>
+                    notification.id !== action.payload.id);
             default:
                 return state;
         }
-    }, []);
+    }, [
+        {
+            id: Math.random(),
+            color: "#FFA43A",
+            message: "this is a test",
+        },
+        {
+            id: Math.random(),
+            color: "#FFA43A",
+            message: "this is a test2",
+        }
+    ]);
 
     return (
-        <NotificationContext.Provider value={{ dispatch }}>
-            <div>
+        <NotificationContext.Provider value={dispatch}>
+            <div className={styles.notificationWrapper}>
                 {
                     state.map((note: any) => {
-                        return <Notification dispatch={dispatch} key={note.id} {...note} />
+                        return <Notification
+                            dispatch={dispatch}
+                            key={note.id}
+                            {...note}
+                        />
                     })
                 }
             </div>
@@ -31,17 +48,17 @@ const NotificationProvider = (props: any) => {
 }
 
 export const useNotification = () => {
-    const dispatch: any = useContext(NotificationContext);
+    const dispatch = useContext(NotificationContext);
 
     return (props: any) => {
         dispatch({
-            type: 'ADD_NOTIFICATION',
+            type: "ADD_NOTIFICATION",
             payload: {
-                id: 1,
-                note: props
+                id: Math.random(),
+                ...props
             }
         });
     }
-};
+}
 
 export default NotificationProvider;
