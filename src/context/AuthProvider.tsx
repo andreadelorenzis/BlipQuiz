@@ -1,5 +1,5 @@
 import React from 'react'
-import { fakeAuthProvider } from "../data/auth";
+import { fakeAuthProvider } from "../assets/auth";
 
 interface AuthContextType {
   user: any;

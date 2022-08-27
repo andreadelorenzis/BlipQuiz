@@ -3,7 +3,7 @@ import { useNavigate, useLocation, Navigate } from "react-router-dom";
 import close from "../../assets/close.png";
 import wave from "../../assets/wave4.svg";
 import google from "../../assets/google.png";
-import { useAuth } from "../../auth/AuthProvider";
+import { useAuth } from "../../context/AuthProvider";
 import { useEffect } from "react";
 
 type LoginProps = {

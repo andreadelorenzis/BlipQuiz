@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import styles from './Dashboard.module.css'
 import search from "../../assets/search.png";
 import plus from "../../assets/plus.png";
-import data from "../../data/MockData.json";
 import Deck from './Deck/Deck';
 import DeckEditor from './DeckEditor/DeckEditor';
+import { useDeck } from '../../context/DecksProvider';
 
 function Dashboard() {
     const [editorOpen, setEditorOpen] = useState(false);
+    const decks = useDeck().state;
 
     const toggleEditor = () => {
         if (editorOpen) {
@@ -32,13 +33,13 @@ function Dashboard() {
                 </button>
             </div>
             <div className={styles.decksContainer}>
-                {data.decks.length == 0
+                {decks.length == 0
                     ? <div className={styles.noDecks}>
                         <p className={styles.noDecks}>No decks yet</p>
                         <button className={styles.mainBtn}>Add a deck</button>
                     </div>
                     : null}
-                {data.decks.map((deck: any) => {
+                {decks.map((deck: any) => {
                     return (
                         <Deck
                             key={deck.id}

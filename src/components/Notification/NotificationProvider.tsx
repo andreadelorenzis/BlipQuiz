@@ -16,18 +16,7 @@ const NotificationProvider = (props: any) => {
             default:
                 return state;
         }
-    }, [
-        {
-            id: Math.random(),
-            color: "#FFA43A",
-            message: "this is a test",
-        },
-        {
-            id: Math.random(),
-            color: "#FFA43A",
-            message: "this is a test2",
-        }
-    ]);
+    }, []);
 
     return (
         <NotificationContext.Provider value={dispatch}>

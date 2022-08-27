@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { AuthProvider } from './context/AuthProvider';
+import NotificationProvider from './components/Notification/NotificationProvider';
+import DecksProvider from './context/DecksProvider';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,7 +14,13 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <AuthProvider>
+        <NotificationProvider>
+          <DecksProvider>
+            <App />
+          </DecksProvider>
+        </NotificationProvider>
+      </AuthProvider>
     </Router>
   </React.StrictMode>
 );

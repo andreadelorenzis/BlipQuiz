@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import data from "../../data/MockData.json";
 import arrow from "../../assets/arrow.png";
 import list from "../../assets/list.png";
 import search from "../../assets/search.png";
@@ -11,13 +10,14 @@ import ModalityChoice from '../ModalityChoice/ModalityChoice';
 import EditCard from '../../components/EditCard/EditCard';
 import { FlashcardType } from '../../components/Flashcard/FlashcardType';
 import CardOverview from '../../components/CardOverview/StudyOverview';
+import { useDeck } from '../../context/DecksProvider';
 
 function DeckDetails() {
-    const { deckID } = useParams() as any;
-    const deck: any = data.decks.find((deck: any) => deck.id == deckID);
-
     const [choiceModal, setChoiceModal] = useState(false);
     const [cardEditorOpen, setCardEditorOpen] = useState(false);
+    const { deckID } = useParams() as any;
+    const decks = useDeck().state;
+    const deck: any = decks.find((deck: any) => deck.id == deckID);
 
     const toggleChoiceModal = () => {
         if (choiceModal) {
@@ -91,7 +91,7 @@ function DeckDetails() {
             <ModalityChoice
                 open={choiceModal}
                 onClose={toggleChoiceModal}
-                deck={data.decks[deckID]} />
+                deck={decks[deckID]} />
             <EditCard
                 open={cardEditorOpen}
                 onClose={toggleEditor}

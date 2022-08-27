@@ -7,7 +7,7 @@ import menu from "../../assets/menu.png";
 import close from "../../assets/close.png";
 import Login from '../../components/Login/Login';
 import Signup from '../../components/Signup/Signup';
-import { useAuth } from '../../auth/AuthProvider';
+import { useAuth } from '../../context/AuthProvider';
 
 export default function Layout() {
     const linksRef: any = React.useRef(null);

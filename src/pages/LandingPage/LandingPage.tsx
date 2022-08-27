@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate, Navigate, useLocation } from "react-router-dom";
-import { useAuth } from '../../auth/AuthProvider';
+import { useAuth } from '../../context/AuthProvider';
 import styles from "./LandingPage.module.css";
 import wave from "../../assets/wave.svg";
 import wave2 from "../../assets/wave4.svg";
