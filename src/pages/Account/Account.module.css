@@ -24,8 +24,16 @@
     box-shadow: 0px 4px 20px 4px rgba(0, 0, 0, 0.1);
 }
 
-.card .email {
-    margin-bottom: 15px;
+.card .email,
+.card .confirm,
+.card .name {
+    margin-bottom: 10px;
+}
+
+.card .email span,
+.card .confirm span,
+.card .name span {
+    font-weight: 600;
 }
 
 .cardHeader {
@@ -65,10 +73,26 @@
     padding: 5px;
 }
 
+.deleteBtn {
+    background-color: #FF523A;
+    color: #fff;
+    border-radius: 10px;
+    width: 120px;
+    height: 40px;
+    margin-right: auto;
+    margin-top: 20px;
+    padding: 5px;
+}
+
 .container form span {
     color: #3A86FF;
     font-size: 14px;
     cursor: pointer;
     text-decoration: underline;
     margin-left: auto;
+}
+
+button:disabled {
+    background-color: #8B8C8E;
+    opacity: 0.5;
 }

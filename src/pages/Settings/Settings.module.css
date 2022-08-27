@@ -42,20 +42,21 @@
 
 .text .info {
     position: relative;
-    z-index: 1;
 }
 
-.text span {
+.text .info p {
     position: absolute;
     top: 0;
     left: 40px;
-    width: 200px;
+    width: 250px;
     background-color: #333;
     color: #fff;
-    font-size: 12px;
+    font-size: 13px;
     padding: 10px;
     border-radius: 10px;
     display: none;
+    z-index: 2;
+    line-height: 1.2em;
 }
 
 .text .info:hover .hide {

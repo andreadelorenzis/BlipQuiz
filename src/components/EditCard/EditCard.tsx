@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from "./EditCard.module.css"
 import close from "../../assets/close.png"
-import ToggleSwitch from './ToggleSwitch/ToggleSwitch';
+import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
 import CardEditor from './CardEditor/CardEditor';
 
 type EditCardProps = {

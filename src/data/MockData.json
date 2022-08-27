@@ -1,23 +1,30 @@
 {
-    "options": {
-        "newCardsDay": 20,
-        "reviewsCardsDay": 100,
-        "learningSteps": "1m 10m",
-        "intervalGraduation": 1,
-        "easyInterval": 4,
-        "insertionOrder": "sequential",
-        "relearningSteps": "1m 10m",
-        "minimumInterval": 1,
-        "leachesLimit": 8,
-        "leachesAction": "suspend",
-        "maxAnswerSeconds": 60,
-        "showAnswerTimer": true,
-        "maxInterval": 36500,
-        "initialiEase": 2.50,
-        "easeBonus": 1.3,
-        "intervalModifier": 1.0,
-        "hardInterval": 1.20,
-        "againInterval": 0.00
+    "user": {
+        "isAuthenticated": "true",
+        "profileImg": "someImgURL",
+        "username": "mario",
+        "password": "pass123",
+        "email": "mariorossi@gmail.com",
+        "studySettings": {
+            "newCardsDay": 10,
+            "reviewsCardsDay": 100,
+            "learningSteps": "1m 10m",
+            "intervalGraduation": 1,
+            "easyInterval": 4,
+            "insertionOrder": "FIFO",
+            "relearningSteps": "10m",
+            "minimumInterval": 1,
+            "leechesLimit": 8,
+            "leachesAction": "suspend",
+            "maxAnswerSeconds": 60,
+            "showAnswerTimer": true,
+            "maxInterval": 36500,
+            "initialEase": 2.50,
+            "easeBonus": 1.3,
+            "intervalModifier": 1.0,
+            "hardInterval": 1.20,
+            "againInterval": 0.00
+        }
     },
     "decks": [
         {
@@ -113,12 +120,5 @@
             "cards": [],
             "cardsToStudy": []
         }
-    ],
-    "userInfo": {
-        "authenticated": "true",
-        "profileImg": "someImgURL",
-        "username": "mario",
-        "password": "pass123",
-        "email": "mariorossi@gmail.com"
-    }
+    ]
 }

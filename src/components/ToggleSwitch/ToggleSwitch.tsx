@@ -5,10 +5,11 @@ type ToggleSwitchProps = {
     onClick: Function;
     value1: string;
     value2: string;
+    checked?: boolean;
 }
 
-function ToggleSwitch({ onClick, value1, value2 }: ToggleSwitchProps) {
-    const [isOn, setIsOn] = useState(false);
+function ToggleSwitch({ onClick, value1, value2, checked = false }: ToggleSwitchProps) {
+    const [isOn, setIsOn] = useState(checked);
 
     const handleClick = () => {
         setIsOn(!isOn);
