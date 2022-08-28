@@ -35,7 +35,10 @@
                 {
                     "id": 1,
                     "question": "Cos'è un sistema operativo?",
-                    "answer": "E' un programma che funge da intermediario..."
+                    "answer": "E' un programma che funge da intermediario...",
+                    "state": "LEARNING",
+                    "currInterval": "1m",
+                    "ease": 2.50
                 },
                 {
                     "id": 2,
@@ -101,6 +104,48 @@
                 },
                 {
                     "id": 3,
+                    "question": "Spiegare il file system.",
+                    "answer": "E' un programma che funge da intermediario..."
+                }
+            ],
+            "cardsToReview": [
+                {
+                    "id": 4,
+                    "question": "Cos'è un sistema operativo?",
+                    "answer": "E' un programma che funge da intermediario..."
+                },
+                {
+                    "id": 5,
+                    "question": "Cos'è la memoria virtuale?",
+                    "answer": "E' un programma che funge da intermediario..."
+                },
+                {
+                    "id": 6,
+                    "question": "Spiegare il file system.",
+                    "answer": "E' un programma che funge da intermediario..."
+                },
+                {
+                    "id": 7,
+                    "question": "Cos'è un sistema operativo?",
+                    "answer": "E' un programma che funge da intermediario..."
+                },
+                {
+                    "id": 8,
+                    "question": "Cos'è la memoria virtuale?",
+                    "answer": "E' un programma che funge da intermediario..."
+                },
+                {
+                    "id": 9,
+                    "question": "Spiegare il file system.",
+                    "answer": "E' un programma che funge da intermediario..."
+                },
+                {
+                    "id": 10,
+                    "question": "Spiegare il file system.",
+                    "answer": "E' un programma che funge da intermediario..."
+                },
+                {
+                    "id": 11,
                     "question": "Spiegare il file system.",
                     "answer": "E' un programma che funge da intermediario..."
                 }

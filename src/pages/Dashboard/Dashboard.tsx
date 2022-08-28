@@ -8,9 +8,17 @@ import { useDeck } from '../../context/DecksProvider';
 
 function Dashboard() {
     const [editorOpen, setEditorOpen] = useState(false);
+    const [deck, setDeck] = useState(null);
     const decks = useDeck().state;
 
-    const toggleEditor = () => {
+    const toggleEditor = (deck: any) => {
+        // if deckName is passed, it means we are editing an existing deck
+        if (deck) {
+            setDeck(deck);
+        } else {
+            setDeck(null);
+        }
+
         if (editorOpen) {
             setEditorOpen(false);
             document.body.style.overflow = "auto";
@@ -27,7 +35,7 @@ function Dashboard() {
                     <input type="text" placeholder='Search' />
                     <img className={styles.searchImg} src={search} alt="search" />
                 </div>
-                <button className={styles.addBtn} onClick={toggleEditor}>
+                <button className={styles.addBtn} onClick={() => toggleEditor(null)}>
                     <p>Add new deck</p>
                     <img src={plus} alt="" />
                 </button>
@@ -44,11 +52,12 @@ function Dashboard() {
                         <Deck
                             key={deck.id}
                             deck={deck}
+                            toggleDeckEditor={toggleEditor}
                         />
                     )
                 })}
             </div>
-            <DeckEditor open={editorOpen} onClose={toggleEditor} isNew={false} />
+            {editorOpen ? <DeckEditor open={editorOpen} onClose={toggleEditor} deck={deck} /> : null}
         </div>
     )
 }

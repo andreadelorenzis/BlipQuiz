@@ -8,12 +8,33 @@ const DeckProvider = (props: any) => {
     const [state, dispatch] = useReducer((state: any, action: any) => {
         switch (action.type) {
             case "ADD_DECK":
-                console.log("ADD_DECK");
                 return [...state, action.payload];
             case "REMOVE_DECK":
-                console.log("REMOVE_DECK");
-                return state.filter((notification: any) =>
-                    notification.id !== action.payload.id);
+                return state.filter((deck: any) => deck.id !== action.payload.id);
+            case "EDIT_DECK":
+                return state.map((deck: any) => {
+                    if (deck.id === action.payload.id) {
+                        return {
+                            ...deck,
+                            name: action.payload.name
+                        }
+                    }
+                    return deck;
+                });
+            case "ADD_CARD":
+                return state.map((deck: any) => {
+                    if (deck.id === action.payload.deckId) {
+                        deck.cards.push(action.payload.card);
+                    }
+                    return deck;
+                });
+            case "REMOVE_CARD":
+                return state.map((deck: any) => {
+                    if (deck.id === action.payload.deckId) {
+                        deck.cards = deck.cards.filter((card: any) => card.id !== action.payload.cardId);
+                    }
+                    return deck;
+                });
             default:
                 return state;
         }

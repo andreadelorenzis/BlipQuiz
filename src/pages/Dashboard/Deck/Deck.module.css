@@ -1,7 +1,6 @@
 .deck {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     background-color: #fff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
     border-radius: 5px;
@@ -9,10 +8,6 @@
     padding: 20px;
     width: 100%;
     min-height: 180px;
-}
-
-.deck:hover {
-    background-color: #F9F9F9;
 }
 
 .deck span {
@@ -30,13 +25,6 @@
     font-size: 16px;
     font-weight: 500;
     margin-right: 10px;
-}
-
-.editImg {
-    width: 22px;
-    height: 22px;
-    cursor: pointer;
-    margin-left: auto;
 }
 
 .bottom {
@@ -60,8 +48,7 @@
 
 .bar div {
     height: 15px;
-    background-color: red;
-    background: #3A86FF;
+    background-color: #3A86FF;
     border-radius: 5px 1px 1px 5px;
 }
 
@@ -84,6 +71,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 20px;
 }
 
 .addBtn {
@@ -108,6 +96,51 @@
     width: 20px;
     height: 20px;
     margin-left: 10px;
+}
+
+/* Edit menu */
+.edit {
+    position: relative;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.edit .dots {
+    width: 22px;
+    height: 22px;
+}
+
+.editMenu {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 200px;
+    height: 80px;
+    background-color: #fdfdfd;
+    box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.editMenu button {
+    padding: 12px 20px;
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.editMenu button:hover {
+    background-color: #F9F9F9;
+}
+
+.editMenu button img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
 }
 
 /* Styling for medium devices */
