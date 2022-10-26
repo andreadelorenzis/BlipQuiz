@@ -75,7 +75,7 @@ function DeckDetails() {
                 {deck.cards.length == 0
                     ? <div className={styles.noCards}>
                         <p>No Cards in this deck yet</p>
-                        <button className={styles.mainBtn}>Create a card</button>
+                        <button className={styles.mainBtn} onClick={toggleEditor}>Create a card</button>
                     </div>
                     : null}
                 {deck.cards.map((card: any) => {
@@ -95,7 +95,7 @@ function DeckDetails() {
             <EditCard
                 open={cardEditorOpen}
                 onClose={toggleEditor}
-                content={null} />
+                card={null} />
         </div>
     )
 }

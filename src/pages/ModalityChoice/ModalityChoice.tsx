@@ -39,7 +39,7 @@ function ModalityChoice({ open, onClose, deck }: ModalityChoiceProps) {
                             <p>All cards</p>
                         </div>
                         <div className={styles.text}>
-                            <p>Repeat all the cards in the deck. Check your knowledge of this deck!</p>
+                            <p>Repeat all the cards in the deck. Check your knowledge of this deck. It doesn't affects the stats for spaced repetiton.</p>
                         </div>
                     </div>
                 </div>

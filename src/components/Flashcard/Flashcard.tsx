@@ -12,8 +12,7 @@ type FlashcardProps = {
     onSubmit: any
 }
 
-function Flashcard({ card: { question, answer }, type, onSubmit }: FlashcardProps) {
-
+function Flashcard({ card, type, onSubmit }: FlashcardProps) {
     const [isFlipped, setIsFlipped] = useState(false);
     const [editOpen, setEditOpen] = useState(false);
 
@@ -58,7 +57,7 @@ function Flashcard({ card: { question, answer }, type, onSubmit }: FlashcardProp
             <div className={`${isFlipped ? styles.flipped : ''} ${styles.card}`}>
                 <div className={styles.cardInner}>
                     <div className={styles.cardFront}>
-                        {cardContent("Question", question)}
+                        {cardContent("Question", card.question)}
                         <div className={styles.toolbar}>
                             <button onClick={flip} className={styles.mainBtn}>
                                 {type == FlashcardType.view ? 'Flip' : 'Show answer'}
@@ -66,7 +65,7 @@ function Flashcard({ card: { question, answer }, type, onSubmit }: FlashcardProp
                         </div>
                     </div>
                     <div className={styles.cardBack}>
-                        {cardContent("Answer", answer)}
+                        {cardContent("Answer", card.answer)}
                         <div className={styles.toolbar}>
                             {type == FlashcardType.view
                                 ? <button onClick={flip} className={styles.mainBtn}>Flip</button>
@@ -92,7 +91,7 @@ function Flashcard({ card: { question, answer }, type, onSubmit }: FlashcardProp
                     </div>
                 </div>
             </div >
-            <EditCard open={editOpen} onClose={toggleEditor} content={{ question, answer }} />
+            <EditCard open={editOpen} onClose={toggleEditor} card={card} />
         </>
     )
 }

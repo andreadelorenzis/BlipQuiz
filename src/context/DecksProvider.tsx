@@ -13,7 +13,7 @@ const DeckProvider = (props: any) => {
                 return state.filter((deck: any) => deck.id !== action.payload.id);
             case "EDIT_DECK":
                 return state.map((deck: any) => {
-                    if (deck.id === action.payload.id) {
+                    if (deck.id == action.payload.id) {
                         return {
                             ...deck,
                             name: action.payload.name
@@ -23,14 +23,28 @@ const DeckProvider = (props: any) => {
                 });
             case "ADD_CARD":
                 return state.map((deck: any) => {
-                    if (deck.id === action.payload.deckId) {
+                    if (deck.id == action.payload.deckID) {
                         deck.cards.push(action.payload.card);
+                    }
+                    return deck;
+                });
+            case "EDIT_CARD":
+                return state.map((deck: any) => {
+                    if (deck.id == action.payload.deckID) {
+                        let cards = deck.cards.map((card: any) => {
+                            if (card.id == action.payload.card.id) {
+                                card.question = action.payload.card.question;
+                                card.answer = action.payload.card.answer;
+                            }
+                            return card;
+                        });
+                        deck.cards = cards;
                     }
                     return deck;
                 });
             case "REMOVE_CARD":
                 return state.map((deck: any) => {
-                    if (deck.id === action.payload.deckId) {
+                    if (deck.id == action.payload.deckID) {
                         deck.cards = deck.cards.filter((card: any) => card.id !== action.payload.cardId);
                     }
                     return deck;

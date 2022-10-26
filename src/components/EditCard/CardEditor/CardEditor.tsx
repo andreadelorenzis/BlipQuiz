@@ -12,22 +12,15 @@ type FlashcardProps = {
     content: {
         question: string;
         answer: string;
-    }
+    },
+    handleChange: Function
 }
 
-function Flashcard({ isFlipped, content }: FlashcardProps) {
-    const [question, setQuestion] = useState(content.question);
-    const [answer, setAnswer] = useState(content.answer);
-    const [answerPreview, setAnswerPreview] = useState('');
-    const [questionPreview, setQuestionPreview] = useState('');
+function Flashcard({ isFlipped, content, handleChange }: FlashcardProps) {
     const [isPreview, setIsPreview] = useState(false);
 
     const handleInputChange = (event: any) => {
-        if (isFlipped) {
-            setAnswer(event.target.value);
-        } else {
-            setQuestion(event.target.value);
-        }
+        handleChange(event);
     }
 
     const preview = () => {
@@ -64,7 +57,7 @@ function Flashcard({ isFlipped, content }: FlashcardProps) {
                     <img src={italic} />
                     <img src={imgIcon} />
                     <select>
-                        <option selected value="paragraph">Paragraph</option>
+                        <option defaultValue={"paragraph"}>Paragraph</option>
                         <option value="h1">H1</option>
                         <option value="h2">H2</option>
                         <option value="h3">H3</option>
@@ -78,10 +71,10 @@ function Flashcard({ isFlipped, content }: FlashcardProps) {
         <div className={`${isFlipped ? styles.flipped : ''} ${styles.card}`}>
             <div className={styles.cardInner}>
                 <div className={styles.cardFront}>
-                    {cardContent("Question", question)}
+                    {cardContent("Question", content.question)}
                 </div>
                 <div className={styles.cardBack}>
-                    {cardContent("Answer", answer)}
+                    {cardContent("Answer", content.answer)}
                 </div>
             </div>
         </div >
