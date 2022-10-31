@@ -24,6 +24,7 @@ function App() {
   useEffect(() => {
     window.addEventListener("resize", updateDeviceSize);
     updateDeviceSize();
+    console.log("cambiato");
     return () => {
       window.removeEventListener("resize", updateDeviceSize);
     }
