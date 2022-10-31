@@ -116,7 +116,6 @@ export default function Layout() {
                                 <ul>
                                     <li><Link to="/dashboard">Dashboard</Link></li>
                                     <li><Link to="/settings">Study settings</Link></li>
-                                    <li><Link to="/statistics">Statistics</Link></li>
                                     <li><Link to="/account">Account</Link></li>
                                     <li onClick={handleLogout}>Logout</li>
                                 </ul>

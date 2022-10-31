@@ -15,6 +15,8 @@ import RequireAuth from './auth/RequireAuth';
 import Settings from './pages/Settings/Settings';
 import Account from './pages/Account/Account';
 import NotificationProvider from './components/Notification/NotificationProvider';
+import { collection, addDoc } from "firebase/firestore";
+import db from "./Firebase";
 
 function App() {
   const [desktopDevice, setDesktopDevice] = useState(false);
@@ -33,6 +35,20 @@ function App() {
       setDesktopDevice(true);
     } else {
       setDesktopDevice(false);
+    }
+  }
+
+  const demo = async () => {
+    // Demo
+    try {
+      const docRef = await addDoc(collection(db, "users"), {
+        first: "Ada",
+        last: "Lovelace",
+        born: 1815
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
     }
   }
 
