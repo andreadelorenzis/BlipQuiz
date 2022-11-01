@@ -3,6 +3,7 @@ import styles from "./Signup.module.css";
 import close from "../../assets/close.png";
 import wave from "../../assets/wave4.svg";
 import google from "../../assets/google.png";
+import { useAuth } from '../../context/AuthProvider';
 
 type SignupProps = {
     open: boolean;
@@ -11,11 +12,35 @@ type SignupProps = {
 };
 
 function Signup({ open, onClose, openLogin }: SignupProps) {
+    const [formData, setFormData] = useState({
+        email: '',
+        password: ''
+    });
+    const { email, password } = formData;
+    const auth = useAuth();
 
     if (!open) return null;
 
-    const handleSubmit = (event: any) => {
+    const handleChange = (e: any) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        setFormData((prevState) => ({
+            ...prevState,
+            [name]: value
+        }));
+    }
 
+    const signupWithEmailAndPass = async (e: any) => {
+        e.preventDefault();
+        const user = await auth.signupWithEmailAndPass(email, password, () => {
+            console.log("Signed in");
+        });
+        console.log(user);
+        onClose();
+    }
+
+    const signupWithGoogle = (e: any) => {
+        e.preventDefault();
     }
 
     const handleLogin = () => {
@@ -38,9 +63,9 @@ function Signup({ open, onClose, openLogin }: SignupProps) {
                     </button>
                     <span className={styles.divider}>or</span>
                     <form className={styles.form}>
-                        <input type="email" placeholder='Email' />
-                        <input type="password" placeholder='Password' />
-                        <button type='submit' className={styles.mainBtn}>Signup</button>
+                        <input onChange={handleChange} name='email' value={email} type="email" placeholder='Email' />
+                        <input onChange={handleChange} name='password' value={password} type="password" placeholder='Password' />
+                        <button onClick={signupWithEmailAndPass} type='submit' className={styles.mainBtn}>Signup</button>
                     </form>
                 </div>
                 <div className={styles.footer}>

@@ -7,6 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { AuthProvider } from './context/AuthProvider';
 import NotificationProvider from './components/Notification/NotificationProvider';
 import DecksProvider from './context/DecksProvider';
+import './config/firebaseConfig';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

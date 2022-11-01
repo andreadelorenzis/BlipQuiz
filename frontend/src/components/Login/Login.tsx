@@ -4,7 +4,7 @@ import close from "../../assets/close.png";
 import wave from "../../assets/wave4.svg";
 import google from "../../assets/google.png";
 import { useAuth } from "../../context/AuthProvider";
-import { useEffect } from "react";
+import { useState } from "react";
 
 type LoginProps = {
     open: boolean;
@@ -13,22 +13,37 @@ type LoginProps = {
 };
 
 function Login({ open, onClose, openSignup }: LoginProps) {
-    let auth = useAuth();
+    const [formData, setFormData] = useState({
+        email: '',
+        password: ''
+    });
+
+    const { email, password } = formData;
+
     let location: any = useLocation();
     const navigate = useNavigate();
-
+    const auth = useAuth();
     let from = location.state?.from?.pathname || "/";
 
-    const handleSubmit = (event: any) => {
-        event.preventDefault();
-        let formData = new FormData(event.currentTarget);
-        let email = formData.get("email")?.toString() || "";
-        let password = formData.get("password")?.toString() || "";
+    const handleChange = (e: any) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        setFormData((prevState) => ({
+            ...prevState,
+            [name]: value
+        }));
+    }
 
-        auth.signin(email, password, () => {
-            navigate(from, { replace: true });
+    const loginWithEmailAndPassword = (e: any) => {
+        e.preventDefault();
+        auth.signinWithEmailAndPass(email, password, () => {
+            console.log('Signed in');
             onClose();
-        });
+        })
+    }
+
+    const loginWithGoogle = () => {
+
     }
 
     const handleSignup = () => {
@@ -47,15 +62,15 @@ function Login({ open, onClose, openSignup }: LoginProps) {
                     <h1>Login and start learning today</h1>
                 </div>
                 <div className={styles.body}>
-                    <button className={styles.googleBtn}>
+                    <button onClick={loginWithGoogle} className={styles.googleBtn}>
                         <img src={google} />
                         Sign in with Google
                     </button>
                     <span className={styles.divider}>or</span>
-                    <form onSubmit={handleSubmit} className={styles.form}>
-                        <input name="email" type="email" placeholder='Email' />
-                        <input name="password" type="password" placeholder='Password' />
-                        <button type='submit' className={styles.mainBtn}>Login</button>
+                    <form className={styles.form}>
+                        <input onChange={handleChange} value={email} name="email" type="email" placeholder='Email' />
+                        <input onChange={handleChange} value={password} name="password" type="password" placeholder='Password' />
+                        <button onClick={loginWithEmailAndPassword} type='submit' className={styles.mainBtn}>Login</button>
                     </form>
                 </div>
                 <div className={styles.footer}>

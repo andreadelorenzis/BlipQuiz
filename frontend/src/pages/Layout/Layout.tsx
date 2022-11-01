@@ -19,27 +19,28 @@ export default function Layout() {
     const [loginOpen, setLoginOpen] = useState(false);
     const [signupOpen, setSignupOpen] = useState(false);
 
-    // da cancellare
-
+    /*da cancellare
     useEffect(() => {
         auth.signin("sdf", "sdf", () => {
             console.log("signed in");
         });
     }, []);
-    // -----------------
+    */
 
+    /*
     useEffect(() => {
         // check if the url is /login and the user is not logged in
-        if (location.pathname === "/login" && !auth.user) {
+        if (location.pathname === "/login" && !auth.checkAuth()) {
             setLoginOpen(true);
         }
 
         // check if the url is /login and the user is logged in (redirect to dashboard)
-        if (location.pathname === "/login" && auth.user) {
+        if (location.pathname === "/login" && auth.checkAuth()) {
             setLoginOpen(false);
             navigate("/dashboard");
         }
-    }, [auth.user, location]);
+    }, [location]);
+    */
 
     const toggleMenu = () => {
         if (menuOpened) {
@@ -80,8 +81,10 @@ export default function Layout() {
 
     const handleLogout = () => {
         auth.signout(() => {
-            console.log("logged out");
-            navigate("/");
+            auth.signout(() => {
+                console.log("Logged out");
+                navigate("/");
+            });
         });
         toggleMenu();
     }
@@ -99,7 +102,7 @@ export default function Layout() {
 
     return (
         <div className={styles.layout}>
-            {auth.user
+            {auth.isAuthenticated
                 ? (<nav className={styles.nav}> {/* logged in */}
                     <div className={styles.container}>
                         <Link to="/">

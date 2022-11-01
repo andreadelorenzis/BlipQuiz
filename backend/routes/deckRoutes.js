@@ -6,8 +6,9 @@ const {
     updateDeck,
     deleteDeck
 } = require('../controllers/deckController');
+const { protect } = require('../middleware/authMiddleware');
 
-router.route('/').get(getDecks).post(createDeck);
-router.route('/:id').put(updateDeck).delete(deleteDeck);
+router.route('/').get(protect, getDecks).post(protect, createDeck);
+router.route('/:id').put(protect, updateDeck).delete(protect, deleteDeck);
 
 module.exports = router;

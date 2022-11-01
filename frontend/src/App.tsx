@@ -10,21 +10,23 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import DeckDetails from './pages/DeckDetails/DeckDetails';
 import Quiz from './pages/Quiz/Quiz';
 import { QuizModality } from './pages/Quiz/QuizModality';
-import { AuthProvider, useAuth } from './context/AuthProvider';
 import RequireAuth from './auth/RequireAuth';
 import Settings from './pages/Settings/Settings';
 import Account from './pages/Account/Account';
-import NotificationProvider from './components/Notification/NotificationProvider';
-import { collection, addDoc } from "firebase/firestore";
-import db from "./Firebase";
+import { useAuth } from './context/AuthProvider';
 
 function App() {
   const [desktopDevice, setDesktopDevice] = useState(false);
+  const auth = useAuth();
+
+  useEffect(() => {
+    auth.checkAuth();
+    console.log("Auth: ", auth.isAuthenticated);
+  }, []);
 
   useEffect(() => {
     window.addEventListener("resize", updateDeviceSize);
     updateDeviceSize();
-    console.log("cambiato");
     return () => {
       window.removeEventListener("resize", updateDeviceSize);
     }
@@ -36,20 +38,6 @@ function App() {
       setDesktopDevice(true);
     } else {
       setDesktopDevice(false);
-    }
-  }
-
-  const demo = async () => {
-    // Demo
-    try {
-      const docRef = await addDoc(collection(db, "users"), {
-        first: "Ada",
-        last: "Lovelace",
-        born: 1815
-      });
-      console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-      console.error("Error adding document: ", e);
     }
   }
 

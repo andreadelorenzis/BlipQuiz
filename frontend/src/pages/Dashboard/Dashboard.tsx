@@ -5,11 +5,29 @@ import plus from "../../assets/plus.png";
 import Deck from './Deck/Deck';
 import DeckEditor from './DeckEditor/DeckEditor';
 import { useDeck } from '../../context/DecksProvider';
+import { useAuth } from '../../context/AuthProvider';
+import axios from 'axios';
 
 function Dashboard() {
     const [editorOpen, setEditorOpen] = useState(false);
     const [deck, setDeck] = useState(null);
     const decks = useDeck().state;
+    const auth = useAuth();
+
+    useEffect(() => {
+        if (auth.token) {
+            fetchData(auth.token);
+        }
+    }, [auth.token]);
+
+    const fetchData = async (token: String) => {
+        const res = await axios.get('http://localhost:5000/api/decks', {
+            headers: {
+                Authorization: 'Bearer ' + token
+            }
+        });
+        console.log(res.data);
+    }
 
     const toggleEditor = (deck: any) => {
         // if deckName is passed, it means we are editing an existing deck
