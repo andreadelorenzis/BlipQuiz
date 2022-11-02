@@ -98,8 +98,9 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
       // Sign-out successful
       setIsAuthenticated(false);
       setUser(null);
-      window.localStorage.setItem('isAuthenticated', 'false');
       setToken('');
+      window.localStorage.setItem('isAuthenticated', 'false');
+      window.localStorage.removeItem('user');
       callback();
     }).catch((error) => {
       console.log(error);

@@ -18,7 +18,7 @@ const register = async (userData: Object, token: String) => {
         // Error
         if (window.localStorage.getItem('isAuthenticated')) {
             window.localStorage.setItem('isAuthenticated', 'false');
-            window.localStorage.setItem('user', '');
+            window.localStorage.removeItem('user');
         }
         console.log('An error occured when trying to connect with server');
     }
