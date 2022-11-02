@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Flashcard app for studying.",
   "main": "server.js",
+  "engine": {
+    "node": "18.12.0"
+  },
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
