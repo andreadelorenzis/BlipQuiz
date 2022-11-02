@@ -4,7 +4,8 @@
   "description": "Flashcard app for studying.",
   "main": "server.js",
   "engine": {
-    "node": "18.12.0"
+    "node": "18.12.0",
+    "npm": "8.19.2"
   },
   "scripts": {
     "start": "node backend/server.js",
