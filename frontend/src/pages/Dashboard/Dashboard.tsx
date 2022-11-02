@@ -21,7 +21,7 @@ function Dashboard() {
     }, [auth.token]);
 
     const fetchData = async (token: String) => {
-        const res = await axios.get('http://localhost:5001/api/decks', {
+        const res = await axios.get('https://blipquiz.onrender.com/api/decks', {
             headers: {
                 Authorization: 'Bearer ' + token
             }

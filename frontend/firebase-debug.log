@@ -1,0 +1,30 @@
+[debug] [2022-11-02T22:08:49.761Z] ----------------------------------------------------------------------
+[debug] [2022-11-02T22:08:49.763Z] Command:       C:\Desktop\programs\nodejs\node.exe C:\Users\andre\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-11-02T22:08:49.763Z] CLI Version:   11.15.0
+[debug] [2022-11-02T22:08:49.763Z] Platform:      win32
+[debug] [2022-11-02T22:08:49.763Z] Node Version:  v18.12.0
+[debug] [2022-11-02T22:08:49.776Z] Time:          Wed Nov 02 2022 23:08:49 GMT+0100 (Ora standard dell’Europa centrale)
+[debug] [2022-11-02T22:08:49.777Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-02T22:08:49.858Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-02T22:08:49.858Z] > authorizing via signed-in user (andredelo99@gmail.com)
+[debug] [2022-11-02T22:08:49.858Z] [iam] checking project blipquiz for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-11-02T22:08:49.861Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/blipquiz:testIamPermissions [none]
+[debug] [2022-11-02T22:08:49.861Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/blipquiz:testIamPermissions x-goog-quota-user=projects/blipquiz
+[debug] [2022-11-02T22:08:49.861Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/blipquiz:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-11-02T22:08:50.950Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/blipquiz:testIamPermissions 200
+[debug] [2022-11-02T22:08:50.950Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/blipquiz:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-11-02T22:08:50.951Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/blipquiz [none]
+[debug] [2022-11-02T22:08:51.357Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/blipquiz 200
+[debug] [2022-11-02T22:08:51.358Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/blipquiz {"projectId":"blipquiz","projectNumber":"747854309345","displayName":"BlipQuiz","name":"projects/blipquiz","resources":{"hostingSite":"blipquiz","storageBucket":"blipquiz.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_7995020c-2279-40b2-b4c0-d7ace8100268"}
+[info] 
+[info] === Deploying to 'blipquiz'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-11-02T22:08:51.379Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/blipquiz/versions [none]
+[debug] [2022-11-02T22:08:51.379Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/blipquiz/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-11-02T22:08:52.638Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/blipquiz/versions 200
+[debug] [2022-11-02T22:08:52.638Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/blipquiz/versions {"name":"projects/747854309345/sites/blipquiz/versions/f14d0ada069dc960","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[blipquiz]: beginning deploy... 
+[info] i  hosting[blipquiz]: found 21 files in frontend/build 
+[debug] [2022-11-02T22:08:52.658Z] [hosting] uploading with 200 concurrency
