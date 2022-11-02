@@ -1,4 +1,4 @@
-import { firebaseConfig } from "./firebaseSecret";
+import { firebaseConfig } from "./configData";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";

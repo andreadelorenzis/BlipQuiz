@@ -22,7 +22,6 @@
 serviceAccout.json
 /config/serviceAccout.json
 /backend/config/serviceAccount.json
-/frontend/src/config/firebaseSecret.js
 
 npm-debug.log*
 yarn-debug.log*
