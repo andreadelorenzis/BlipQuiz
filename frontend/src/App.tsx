@@ -19,10 +19,10 @@ function App() {
   const [desktopDevice, setDesktopDevice] = useState(false);
   const auth = useAuth();
 
-  useEffect(() => {
-    auth.checkAuth();
-    console.log("Auth: ", auth.isAuthenticated);
-  }, []);
+  // useEffect(() => {
+  //   auth.checkAuth();
+  //   console.log("Auth: ", auth.isAuthenticated);
+  // }, []);
 
   useEffect(() => {
     window.addEventListener("resize", updateDeviceSize);

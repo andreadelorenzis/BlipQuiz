@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API_URL = '/api/users/';
 
-const register = async (userData: Object, token: String) => {
+const register = async (userData: Object, token: string) => {
     const response = await axios.post(API_URL,
         userData,
         {
@@ -13,7 +13,7 @@ const register = async (userData: Object, token: String) => {
 
     if (response.data) {
         window.localStorage.setItem('isAuthenticated', 'true');
-        window.localStorage.setItem('user', JSON.stringify(userData));
+        window.localStorage.setItem('token', token);
     } else {
         // Error
         if (window.localStorage.getItem('isAuthenticated')) {

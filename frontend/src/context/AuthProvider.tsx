@@ -11,7 +11,7 @@ interface AuthContextType {
   checkAuth: () => Boolean;
   signout: (callback: VoidFunction) => void;
   isAuthenticated: Boolean;
-  token: String;
+  token: any;
 }
 
 const AuthContext = React.createContext<AuthContextType>(null!);
@@ -23,7 +23,7 @@ function useAuth() {
 function AuthProvider({ children }: { children: React.ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false || window.localStorage.getItem('isAuthenticated') === 'true');
   const [user, setUser] = React.useState<any>(null);
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState('' || window.localStorage.getItem('token'));
   const [studySettings, setStudySettings] = React.useState<any>(null);
 
   // Register user with email and password
@@ -79,6 +79,7 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
         setUser(user);
         user.getIdToken().then((token) => {
           setToken(token);
+          window.localStorage.setItem('token', token);
         });
         window.localStorage.setItem('isAuthenticated', 'true');
         setIsAuthenticated(true);

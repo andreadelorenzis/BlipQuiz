@@ -21,7 +21,7 @@ function Dashboard() {
     }, [auth.token]);
 
     const fetchData = async (token: String) => {
-        const res = await axios.get('http://localhost:5000/api/decks', {
+        const res = await axios.get('http://localhost:5001/api/decks', {
             headers: {
                 Authorization: 'Bearer ' + token
             }

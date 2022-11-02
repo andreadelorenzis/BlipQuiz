@@ -7,6 +7,7 @@ const protect = asyncHandler(async (req, res, next) => {
         try {
             token = req.headers.authorization.split(' ')[1];
             const decodeValue = await admin.auth().verifyIdToken(token);
+
             if (decodeValue) {
                 req.user = decodeValue;
                 return next();
