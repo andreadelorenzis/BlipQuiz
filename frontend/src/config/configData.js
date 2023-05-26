@@ -1,5 +1,5 @@
 export const firebaseConfig = {
-    apiKey: "AIzaSyBwmfNncp03Or_PZfoI0PvqoP_Iviy5dOc",
+    apiKey: "",
     authDomain: "blipquiz.firebaseapp.com",
     projectId: "blipquiz",
     storageBucket: "blipquiz.appspot.com",
